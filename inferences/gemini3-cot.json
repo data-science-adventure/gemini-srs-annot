@@ -2,152 +2,1276 @@
     {
         "id": 21741,
         "text": "As a moderator, I want to create an account for the application by entering my name, email address, a password and a username, so that I can start using the application.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "moderator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "application",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "create an account",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "account",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "name",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "email address",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "password",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "username",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "moderator",
+                    "predicate": "PERFORMS",
+                    "object": "create an account"
+                },
+                {
+                    "subject": "application",
+                    "predicate": "CONTAINS",
+                    "object": "create an account"
+                },
+                {
+                    "subject": "account",
+                    "predicate": "OWNS",
+                    "object": "name"
+                },
+                {
+                    "subject": "account",
+                    "predicate": "OWNS",
+                    "object": "email address"
+                },
+                {
+                    "subject": "account",
+                    "predicate": "OWNS",
+                    "object": "password"
+                },
+                {
+                    "subject": "account",
+                    "predicate": "OWNS",
+                    "object": "username"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "ONE_TO_ONE_ASSOCIATION",
+                    "object": "account"
+                }
+            ]
+        }
     },
     {
         "id": 21742,
         "text": "The system comprises of different modules that operate hand-in-hand to accomplish the desired goal.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                }
+            ],
+            "relations": []
+        }
     },
     {
         "id": 21743,
         "text": "As a MedicalCaregiver, I want to have ALFRED to be able to determine the user's breathing frequency.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "MedicalCaregiver",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "ALFRED",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "determine the user's breathing frequency",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "ALFRED",
+                    "predicate": "CONTAINS",
+                    "object": "determine the user's breathing frequency"
+                },
+                {
+                    "subject": "MedicalCaregiver",
+                    "predicate": "PERFORMS",
+                    "object": "determine the user's breathing frequency"
+                }
+            ]
+        }
     },
     {
         "id": 21744,
         "text": "It must allow a user to logout.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "logout",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "logout"
+                }
+            ]
+        }
     },
     {
         "id": 21745,
         "text": "A VCD system MUST provide functionality to collect and process context specific data for evidence that has to be provided manually or semi-automatically by the issuing body, by the economic operator or any trusted third party.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "VCD system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "collect and process context specific data for evidence",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "issuing body",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "economic operator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "trusted third party",
+                    "label": "ACTOR"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "VCD system",
+                    "predicate": "CONTAINS",
+                    "object": "collect and process context specific data for evidence"
+                },
+                {
+                    "subject": "issuing body",
+                    "predicate": "PERFORMS",
+                    "object": "collect and process context specific data for evidence"
+                },
+                {
+                    "subject": "economic operator",
+                    "predicate": "PERFORMS",
+                    "object": "collect and process context specific data for evidence"
+                },
+                {
+                    "subject": "trusted third party",
+                    "predicate": "PERFORMS",
+                    "object": "collect and process context specific data for evidence"
+                }
+            ]
+        }
     },
     {
         "id": 21746,
         "text": "As a library staff member, I want to receive a quick response and a reasonable resolution to tech support issues, so that service can proceed with minimal interruption.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "library staff member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "receive a quick response and a reasonable resolution to tech support issues",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "library staff member",
+                    "predicate": "PERFORMS",
+                    "object": "receive a quick response and a reasonable resolution to tech support issues"
+                }
+            ]
+        }
     },
     {
         "id": 21747,
         "text": "As a Plan Review Staff member, I want to Track the Completion of Required Plan Reviews, so that I can ensure all plan review tasks are completed, results have been sent to the Applicant and any downstream steps are initiated such has a final review or payment for permit issuance.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Plan Review Staff member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "Track the Completion of Required Plan Reviews",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "Applicant",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "final review",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "payment for permit issuance",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Plan Review Staff member",
+                    "predicate": "PERFORMS",
+                    "object": "Track the Completion of Required Plan Reviews"
+                },
+                {
+                    "subject": "Track the Completion of Required Plan Reviews",
+                    "predicate": "INCLUDE",
+                    "object": "final review"
+                },
+                {
+                    "subject": "Track the Completion of Required Plan Reviews",
+                    "predicate": "INCLUDE",
+                    "object": "payment for permit issuance"
+                }
+            ]
+        }
     },
     {
         "id": 21748,
         "text": "The system shall be able to simulate road rules diagrams.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "simulate road rules diagrams",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "simulate road rules diagrams"
+                }
+            ]
+        }
     },
     {
         "id": 21749,
         "text": "The Disputes System shall provide view access capability for authorized users of the application.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Disputes System",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "view access capability",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "authorized users",
+                    "label": "ACTOR"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Disputes System",
+                    "predicate": "CONTAINS",
+                    "object": "view access capability"
+                },
+                {
+                    "subject": "authorized users",
+                    "predicate": "PERFORMS",
+                    "object": "view access capability"
+                }
+            ]
+        }
     },
     {
         "id": 21750,
         "text": "As a site member, I want to mark my email address as private even if the rest of my profile is not, so that no one can contact me.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "site member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "mark my email address as private",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "profile",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "email address",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "site member",
+                    "predicate": "PERFORMS",
+                    "object": "mark my email address as private"
+                },
+                {
+                    "subject": "profile",
+                    "predicate": "OWNS",
+                    "object": "email address"
+                }
+            ]
+        }
     },
     {
         "id": 21751,
         "text": "As a Publisher, I want to publish a data package where its resource data is stored on my servers but the registry caches a copy of that data, so that that if my data is lost or gets broken I still have a copy people can use.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Publisher",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "publish a data package",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "registry",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "caches a copy of that data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "data package",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "resource data",
+                    "label": "BLOB_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Publisher",
+                    "predicate": "PERFORMS",
+                    "object": "publish a data package"
+                },
+                {
+                    "subject": "registry",
+                    "predicate": "CONTAINS",
+                    "object": "caches a copy of that data"
+                },
+                {
+                    "subject": "publish a data package",
+                    "predicate": "INCLUDE",
+                    "object": "caches a copy of that data"
+                },
+                {
+                    "subject": "data package",
+                    "predicate": "OWNS",
+                    "object": "resource data"
+                }
+            ]
+        }
     },
     {
         "id": 21752,
         "text": "The System must allow only admin-users to set up user profiles and allocate users to groups.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The System",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "admin-users",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "set up user profiles",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "allocate users to groups",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "user profiles",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "groups",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "users",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The System",
+                    "predicate": "CONTAINS",
+                    "object": "set up user profiles"
+                },
+                {
+                    "subject": "The System",
+                    "predicate": "CONTAINS",
+                    "object": "allocate users to groups"
+                },
+                {
+                    "subject": "admin-users",
+                    "predicate": "PERFORMS",
+                    "object": "set up user profiles"
+                },
+                {
+                    "subject": "admin-users",
+                    "predicate": "PERFORMS",
+                    "object": "allocate users to groups"
+                },
+                {
+                    "subject": "groups",
+                    "predicate": "ONE_TO_MANY_ASSOCIATION",
+                    "object": "users"
+                },
+                {
+                    "subject": "users",
+                    "predicate": "ONE_TO_ONE_ASSOCIATION",
+                    "object": "user profiles"
+                }
+            ]
+        }
     },
     {
         "id": 21753,
         "text": "As a library staff member, I want to quickly correct errors in uploaded metadata, and even uploaded documents, while leaving a record of my revisions (and possibly the reasons behind them), so that I can present correct versions of content and to locate points of error.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "library staff member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "correct errors in uploaded metadata",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "correct errors in uploaded documents",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "leaving a record of my revisions",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "metadata",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "documents",
+                    "label": "BLOB_ATTRIBUTE"
+                },
+                {
+                    "text": "revisions",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "reasons",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "library staff member",
+                    "predicate": "PERFORMS",
+                    "object": "correct errors in uploaded metadata"
+                },
+                {
+                    "subject": "library staff member",
+                    "predicate": "PERFORMS",
+                    "object": "correct errors in uploaded documents"
+                },
+                {
+                    "subject": "correct errors in uploaded metadata",
+                    "predicate": "INCLUDE",
+                    "object": "leaving a record of my revisions"
+                },
+                {
+                    "subject": "correct errors in uploaded documents",
+                    "predicate": "INCLUDE",
+                    "object": "leaving a record of my revisions"
+                },
+                {
+                    "subject": "revisions",
+                    "predicate": "OWNS",
+                    "object": "reasons"
+                },
+                {
+                    "subject": "revisions",
+                    "predicate": "ASSOCIATION",
+                    "object": "metadata"
+                }
+            ]
+        }
     },
     {
         "id": 21754,
         "text": "As a data reuser, I want to get a persistent URL for a dataset, so that I can get back to the data in future.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "data reuser",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "get a persistent URL for a dataset",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "dataset",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "persistent URL",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "data reuser",
+                    "predicate": "PERFORMS",
+                    "object": "get a persistent URL for a dataset"
+                },
+                {
+                    "subject": "dataset",
+                    "predicate": "OWNS",
+                    "object": "persistent URL"
+                }
+            ]
+        }
     },
     {
         "id": 21755,
         "text": "As an archivist, I want to create and edit a Collection Management subrecord.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "archivist",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "create and edit a Collection Management subrecord",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "Collection Management subrecord",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "archivist",
+                    "predicate": "PERFORMS",
+                    "object": "create and edit a Collection Management subrecord"
+                },
+                {
+                    "subject": "create and edit a Collection Management subrecord",
+                    "predicate": "ASSOCIATION",
+                    "object": "Collection Management subrecord"
+                }
+            ]
+        }
     },
     {
         "id": 21756,
         "text": "The system shall allow administrators to define negotiation rules for the organization.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "administrators",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "define negotiation rules for the organization",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "negotiation rules",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "organization",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "define negotiation rules for the organization"
+                },
+                {
+                    "subject": "administrators",
+                    "predicate": "PERFORMS",
+                    "object": "define negotiation rules for the organization"
+                },
+                {
+                    "subject": "organization",
+                    "predicate": "ONE_TO_MANY_ASSOCIATION",
+                    "object": "negotiation rules"
+                }
+            ]
+        }
     },
     {
         "id": 21757,
         "text": "The system shall be able to close the session",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "close the session",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "close the session"
+                }
+            ]
+        }
     },
     {
         "id": 21758,
         "text": "As a collection curator, I want to have the item to be allowed under the access permissions set on the object after the embargo data is reached.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "collection curator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "allowed under the access permissions set on the object after the embargo data is reached",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "item",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "object",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "access permissions",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "embargo data",
+                    "label": "DATE_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "collection curator",
+                    "predicate": "PERFORMS",
+                    "object": "allowed under the access permissions set on the object after the embargo data is reached"
+                },
+                {
+                    "subject": "item",
+                    "predicate": "IS_A",
+                    "object": "object"
+                },
+                {
+                    "subject": "object",
+                    "predicate": "OWNS",
+                    "object": "access permissions"
+                },
+                {
+                    "subject": "object",
+                    "predicate": "OWNS",
+                    "object": "embargo data"
+                }
+            ]
+        }
     },
     {
         "id": 21759,
         "text": "The system shall enable user to enter the search text on the screen.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "enter the search text on the screen",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "screen",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "search text",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "enter the search text on the screen"
+                },
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "enter the search text on the screen"
+                },
+                {
+                    "subject": "screen",
+                    "predicate": "OWNS",
+                    "object": "search text"
+                }
+            ]
+        }
     },
     {
         "id": 21760,
         "text": "As a Developer , I want to update the FABS sample file to remove FundingAgencyCode after FABS is updated to no longer require the header.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Developer",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "update the FABS sample file",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "remove FundingAgencyCode",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "FABS sample file",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "FundingAgencyCode",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Developer",
+                    "predicate": "PERFORMS",
+                    "object": "update the FABS sample file"
+                },
+                {
+                    "subject": "update the FABS sample file",
+                    "predicate": "INCLUDE",
+                    "object": "remove FundingAgencyCode"
+                },
+                {
+                    "subject": "FABS sample file",
+                    "predicate": "OWNS",
+                    "object": "FundingAgencyCode"
+                }
+            ]
+        }
     },
     {
         "id": 21761,
         "text": "Database of video hosting and video linking sites can be updated via the internet.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Database of video hosting and video linking sites",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "updated via the internet",
+                    "label": "OPERATION"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Database of video hosting and video linking sites",
+                    "predicate": "OWNS",
+                    "object": "updated via the internet"
+                }
+            ]
+        }
     },
     {
         "id": 21762,
         "text": "As a Repository Manager , I want to create, update and delete any records in my repository.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Repository Manager",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "repository",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "create, update and delete any records",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "records",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "repository",
+                    "predicate": "CONTAINS",
+                    "object": "create, update and delete any records"
+                },
+                {
+                    "subject": "Repository Manager",
+                    "predicate": "PERFORMS",
+                    "object": "create, update and delete any records"
+                },
+                {
+                    "subject": "create, update and delete any records",
+                    "predicate": "ASSOCIATION",
+                    "object": "records"
+                }
+            ]
+        }
     },
     {
         "id": 21763,
         "text": "As an admin, I want to annotate news video segments and extract a topic for each segment.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "admin",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "annotate news video segments",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "extract a topic for each segment",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "news video segments",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "topic",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "admin",
+                    "predicate": "PERFORMS",
+                    "object": "annotate news video segments"
+                },
+                {
+                    "subject": "admin",
+                    "predicate": "PERFORMS",
+                    "object": "extract a topic for each segment"
+                },
+                {
+                    "subject": "annotate news video segments",
+                    "predicate": "ASSOCIATION",
+                    "object": "news video segments"
+                },
+                {
+                    "subject": "news video segments",
+                    "predicate": "OWNS",
+                    "object": "topic"
+                }
+            ]
+        }
     },
     {
         "id": 21764,
         "text": "As a Developer, I want to do exploratory data analysis in R and operationalize that analysis in Python, so that I can use the best tool for the job.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Developer",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "do exploratory data analysis in R",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "operationalize that analysis in Python",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "analysis",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Developer",
+                    "predicate": "PERFORMS",
+                    "object": "do exploratory data analysis in R"
+                },
+                {
+                    "subject": "Developer",
+                    "predicate": "PERFORMS",
+                    "object": "operationalize that analysis in Python"
+                },
+                {
+                    "subject": "do exploratory data analysis in R",
+                    "predicate": "ASSOCIATION",
+                    "object": "analysis"
+                },
+                {
+                    "subject": "operationalize that analysis in Python",
+                    "predicate": "ASSOCIATION",
+                    "object": "analysis"
+                }
+            ]
+        }
     },
     {
         "id": 21765,
         "text": "As a repository manager, I want to indicate the geo-coordinates for any resource that believe useful to an end user.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "repository manager",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "indicate the geo-coordinates for any resource",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "resource",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "geo-coordinates",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "repository manager",
+                    "predicate": "PERFORMS",
+                    "object": "indicate the geo-coordinates for any resource"
+                },
+                {
+                    "subject": "resource",
+                    "predicate": "OWNS",
+                    "object": "geo-coordinates"
+                }
+            ]
+        }
     },
     {
         "id": 21766,
         "text": "Students added to a cohort shall be eligible for the cohort’s Program of Study.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Students",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "cohort",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "Program of Study",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "eligible",
+                    "label": "BOOLEAN_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "cohort",
+                    "predicate": "ONE_TO_MANY_ASSOCIATION",
+                    "object": "Students"
+                },
+                {
+                    "subject": "cohort",
+                    "predicate": "ONE_TO_ONE_ASSOCIATION",
+                    "object": "Program of Study"
+                },
+                {
+                    "subject": "Students",
+                    "predicate": "OWNS",
+                    "object": "eligible"
+                }
+            ]
+        }
     },
     {
         "id": 21767,
         "text": "The VCD viewing system MUST display structural data of evidence contained in the VCD package",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "VCD viewing system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "display structural data of evidence",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "VCD package",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "evidence",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "structural data",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "VCD viewing system",
+                    "predicate": "CONTAINS",
+                    "object": "display structural data of evidence"
+                },
+                {
+                    "subject": "VCD package",
+                    "predicate": "ONE_TO_MANY_ASSOCIATION",
+                    "object": "evidence"
+                },
+                {
+                    "subject": "evidence",
+                    "predicate": "OWNS",
+                    "object": "structural data"
+                }
+            ]
+        }
     },
     {
         "id": 21768,
         "text": "The system shall be able to interpret the analysis results",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "interpret the analysis results",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "analysis results",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "interpret the analysis results"
+                },
+                {
+                    "subject": "interpret the analysis results",
+                    "predicate": "ASSOCIATION",
+                    "object": "analysis results"
+                }
+            ]
+        }
     },
     {
         "id": 21769,
         "text": "The Disputes System must provide a confirmation to the user upon the creation of a chargeback request. The confirmation must contain the following information; the dispute case number the type of chargeback requested (pending or immediate) and the date that the merchant response is due.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Disputes System",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "creation of a chargeback request",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "provide a confirmation",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "chargeback request",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "confirmation",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "dispute case number",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "type of chargeback requested",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "date that the merchant response is due",
+                    "label": "DATE_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Disputes System",
+                    "predicate": "CONTAINS",
+                    "object": "creation of a chargeback request"
+                },
+                {
+                    "subject": "Disputes System",
+                    "predicate": "CONTAINS",
+                    "object": "provide a confirmation"
+                },
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "creation of a chargeback request"
+                },
+                {
+                    "subject": "provide a confirmation",
+                    "predicate": "PRECEDES",
+                    "object": "user"
+                },
+                {
+                    "subject": "creation of a chargeback request",
+                    "predicate": "INCLUDE",
+                    "object": "provide a confirmation"
+                },
+                {
+                    "subject": "confirmation",
+                    "predicate": "OWNS",
+                    "object": "dispute case number"
+                },
+                {
+                    "subject": "confirmation",
+                    "predicate": "OWNS",
+                    "object": "type of chargeback requested"
+                },
+                {
+                    "subject": "confirmation",
+                    "predicate": "OWNS",
+                    "object": "date that the merchant response is due"
+                },
+                {
+                    "subject": "chargeback request",
+                    "predicate": "ONE_TO_ONE_ASSOCIATION",
+                    "object": "confirmation"
+                }
+            ]
+        }
     },
     {
         "id": 21770,
         "text": "The system shall display all the products that can be configured.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "display all the products that can be configured",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "products",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "configurable",
+                    "label": "BOOLEAN_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "display all the products that can be configured"
+                },
+                {
+                    "subject": "display all the products that can be configured",
+                    "predicate": "ASSOCIATION",
+                    "object": "products"
+                },
+                {
+                    "subject": "products",
+                    "predicate": "OWNS",
+                    "object": "configurable"
+                }
+            ]
+        }
     },
     {
         "id": 21771,
