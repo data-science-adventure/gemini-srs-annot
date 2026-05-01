@@ -1276,351 +1276,4149 @@
     {
         "id": 21771,
         "text": "The email is intercepted before it is dispatched to the SMTP server.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "email",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "SMTP server",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "intercepted",
+                    "label": "OPERATION"
+                },
+                {
+                    "text": "dispatched",
+                    "label": "OPERATION"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "email",
+                    "predicate": "OWNS",
+                    "object": "intercepted"
+                },
+                {
+                    "subject": "email",
+                    "predicate": "OWNS",
+                    "object": "dispatched"
+                },
+                {
+                    "subject": "intercepted",
+                    "predicate": "PRECEDES",
+                    "object": "dispatched"
+                },
+                {
+                    "subject": "dispatched",
+                    "predicate": "ASSOCIATION",
+                    "object": "SMTP server"
+                }
+            ]
+        }
     },
     {
         "id": 21772,
         "text": "As an owner, I want to remove a user as an owner, so that they are just a member and no longer have full control.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "owner",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "remove a user as an owner",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "user",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "member",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "full control",
+                    "label": "BOOLEAN_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "owner",
+                    "predicate": "PERFORMS",
+                    "object": "remove a user as an owner"
+                },
+                {
+                    "subject": "remove a user as an owner",
+                    "predicate": "ASSOCIATION",
+                    "object": "user"
+                },
+                {
+                    "subject": "user",
+                    "predicate": "IS_A",
+                    "object": "member"
+                },
+                {
+                    "subject": "owner",
+                    "predicate": "OWNS",
+                    "object": "full control"
+                }
+            ]
+        }
     },
     {
         "id": 21773,
         "text": "There shall be exactly one file describing the grammar of inputs associated with an application. It shall have the file extension .grm.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "file",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "application",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "grammar of inputs",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "file extension",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "application",
+                    "predicate": "ONE_TO_ONE_ASSOCIATION",
+                    "object": "file"
+                },
+                {
+                    "subject": "file",
+                    "predicate": "OWNS",
+                    "object": "grammar of inputs"
+                },
+                {
+                    "subject": "file",
+                    "predicate": "OWNS",
+                    "object": "file extension"
+                }
+            ]
+        }
     },
     {
         "id": 21774,
         "text": "As a Developer I want to quickly access Broker application data, so that I can investigate issues.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Developer",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "quickly access Broker application data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "investigate issues",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "Broker application data",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Developer",
+                    "predicate": "PERFORMS",
+                    "object": "quickly access Broker application data"
+                },
+                {
+                    "subject": "Developer",
+                    "predicate": "PERFORMS",
+                    "object": "investigate issues"
+                },
+                {
+                    "subject": "quickly access Broker application data",
+                    "predicate": "PRECEDES",
+                    "object": "investigate issues"
+                },
+                {
+                    "subject": "quickly access Broker application data",
+                    "predicate": "ASSOCIATION",
+                    "object": "Broker application data"
+                }
+            ]
+        }
     },
     {
         "id": 21775,
         "text": "The system shall allow a user to create and load an image",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "create and load an image",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "image",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "create and load an image"
+                },
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "create and load an image"
+                },
+                {
+                    "subject": "create and load an image",
+                    "predicate": "ASSOCIATION",
+                    "object": "image"
+                }
+            ]
+        }
     },
     {
         "id": 21776,
         "text": "As a Publisher, I want to preview a datapackage I have prepared, so that that I can check it works and share the results.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Publisher",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "preview a datapackage",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "check it works",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "share the results",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "datapackage",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "results",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Publisher",
+                    "predicate": "PERFORMS",
+                    "object": "preview a datapackage"
+                },
+                {
+                    "subject": "Publisher",
+                    "predicate": "PERFORMS",
+                    "object": "check it works"
+                },
+                {
+                    "subject": "Publisher",
+                    "predicate": "PERFORMS",
+                    "object": "share the results"
+                },
+                {
+                    "subject": "preview a datapackage",
+                    "predicate": "PRECEDES",
+                    "object": "check it works"
+                },
+                {
+                    "subject": "preview a datapackage",
+                    "predicate": "PRECEDES",
+                    "object": "share the results"
+                },
+                {
+                    "subject": "preview a datapackage",
+                    "predicate": "ASSOCIATION",
+                    "object": "datapackage"
+                },
+                {
+                    "subject": "share the results",
+                    "predicate": "ASSOCIATION",
+                    "object": "results"
+                }
+            ]
+        }
     },
     {
         "id": 21777,
         "text": "The system shall display all the matching products based on the search.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "display all the matching products",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "search",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "products",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "display all the matching products"
+                },
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "search"
+                },
+                {
+                    "subject": "search",
+                    "predicate": "PRECEDES",
+                    "object": "display all the matching products"
+                },
+                {
+                    "subject": "display all the matching products",
+                    "predicate": "ASSOCIATION",
+                    "object": "products"
+                }
+            ]
+        }
     },
     {
         "id": 21778,
         "text": "As a Trainer, I want to include additional details in my profile page about me, so that others can learn about me and decide if I am the right trainer for them.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Trainer",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "include additional details in my profile page",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "learn about me",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "decide if I am the right trainer",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "profile page",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "additional details",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Trainer",
+                    "predicate": "PERFORMS",
+                    "object": "include additional details in my profile page"
+                },
+                {
+                    "subject": "Trainer",
+                    "predicate": "PERFORMS",
+                    "object": "learn about me"
+                },
+                {
+                    "subject": "Trainer",
+                    "predicate": "PERFORMS",
+                    "object": "decide if I am the right trainer"
+                },
+                {
+                    "subject": "include additional details in my profile page",
+                    "predicate": "PRECEDES",
+                    "object": "learn about me"
+                },
+                {
+                    "subject": "learn about me",
+                    "predicate": "PRECEDES",
+                    "object": "decide if I am the right trainer"
+                },
+                {
+                    "subject": "profile page",
+                    "predicate": "OWNS",
+                    "object": "additional details"
+                },
+                {
+                    "subject": "Trainer",
+                    "predicate": "ONE_TO_ONE_ASSOCIATION",
+                    "object": "profile page"
+                }
+            ]
+        }
     },
     {
         "id": 21779,
         "text": "As a researcher, I want to know how long it will take to archive, so that I can plan further steps.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "researcher",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "know how long it will take to archive",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "plan further steps",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "archive",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "duration",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "researcher",
+                    "predicate": "PERFORMS",
+                    "object": "know how long it will take to archive"
+                },
+                {
+                    "subject": "researcher",
+                    "predicate": "PERFORMS",
+                    "object": "plan further steps"
+                },
+                {
+                    "subject": "know how long it will take to archive",
+                    "predicate": "PRECEDES",
+                    "object": "plan further steps"
+                },
+                {
+                    "subject": "archive",
+                    "predicate": "OWNS",
+                    "object": "duration"
+                }
+            ]
+        }
     },
     {
         "id": 21780,
         "text": "Provide the ability to obtain data necessary to determine and access the population estimates for an area or on a permit-by-permit basis. Needs to accommodate how it is determined now and how it will be determined under the SWUCA 2 rules. This would include: Seasonal residential report based on AHCA hospital report (determine seasonal populations).",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "obtain data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "determine and access the population estimates",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "population estimates",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "area",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "permit",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "SWUCA 2 rules",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "Seasonal residential report",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "AHCA hospital report",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "seasonal populations",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "SWUCA 2 rules",
+                    "predicate": "CONTAINS",
+                    "object": "obtain data"
+                },
+                {
+                    "subject": "SWUCA 2 rules",
+                    "predicate": "CONTAINS",
+                    "object": "determine and access the population estimates"
+                },
+                {
+                    "subject": "obtain data",
+                    "predicate": "PRECEDES",
+                    "object": "determine and access the population estimates"
+                },
+                {
+                    "subject": "determine and access the population estimates",
+                    "predicate": "ASSOCIATION",
+                    "object": "population estimates"
+                },
+                {
+                    "subject": "area",
+                    "predicate": "OWNS",
+                    "object": "population estimates"
+                },
+                {
+                    "subject": "permit",
+                    "predicate": "OWNS",
+                    "object": "population estimates"
+                },
+                {
+                    "subject": "Seasonal residential report",
+                    "predicate": "ASSOCIATION",
+                    "object": "AHCA hospital report"
+                },
+                {
+                    "subject": "Seasonal residential report",
+                    "predicate": "OWNS",
+                    "object": "seasonal populations"
+                },
+                {
+                    "subject": "Seasonal residential report",
+                    "predicate": "ASSOCIATION",
+                    "object": "population estimates"
+                }
+            ]
+        }
     },
     {
         "id": 21781,
         "text": "As a team member, I want to know what visual design related tasks we might need to plan for this sprint, so that I can assign tasks as necessary.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "team member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "know what visual design related tasks we might need to plan",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "assign tasks",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "sprint",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "visual design related tasks",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "team member",
+                    "predicate": "PERFORMS",
+                    "object": "know what visual design related tasks we might need to plan"
+                },
+                {
+                    "subject": "team member",
+                    "predicate": "PERFORMS",
+                    "object": "assign tasks"
+                },
+                {
+                    "subject": "know what visual design related tasks we might need to plan",
+                    "predicate": "PRECEDES",
+                    "object": "assign tasks"
+                },
+                {
+                    "subject": "sprint",
+                    "predicate": "CONTAINS",
+                    "object": "visual design related tasks"
+                },
+                {
+                    "subject": "know what visual design related tasks we might need to plan",
+                    "predicate": "ASSOCIATION",
+                    "object": "visual design related tasks"
+                }
+            ]
+        }
     },
     {
         "id": 21782,
         "text": "As a Planning Staff member, I want to Generate Planning-related Reports, so that I can access, analyze and/or export the needed information in the format I requested.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Planning Staff member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "Generate Planning-related Reports",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "access, analyze and/or export the needed information",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "Planning-related Reports",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "format",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Planning Staff member",
+                    "predicate": "PERFORMS",
+                    "object": "Generate Planning-related Reports"
+                },
+                {
+                    "subject": "Planning Staff member",
+                    "predicate": "PERFORMS",
+                    "object": "access, analyze and/or export the needed information"
+                },
+                {
+                    "subject": "Generate Planning-related Reports",
+                    "predicate": "PRECEDES",
+                    "object": "access, analyze and/or export the needed information"
+                },
+                {
+                    "subject": "Generate Planning-related Reports",
+                    "predicate": "ASSOCIATION",
+                    "object": "Planning-related Reports"
+                },
+                {
+                    "subject": "Planning-related Reports",
+                    "predicate": "OWNS",
+                    "object": "format"
+                }
+            ]
+        }
     },
     {
         "id": 21783,
         "text": "The system shall provide user interface for managing application roles.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "managing application roles",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "user interface",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "application roles",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "managing application roles"
+                },
+                {
+                    "subject": "managing application roles",
+                    "predicate": "ASSOCIATION",
+                    "object": "user interface"
+                },
+                {
+                    "subject": "managing application roles",
+                    "predicate": "ASSOCIATION",
+                    "object": "application roles"
+                }
+            ]
+        }
     },
     {
         "id": 21784,
         "text": "As a data contributor, I want to refer to the Disaster Recovery Plan in grant proposals and Data Management Plans.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "data contributor",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "refer to the Disaster Recovery Plan",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "Disaster Recovery Plan",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "grant proposals",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "Data Management Plans",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "data contributor",
+                    "predicate": "PERFORMS",
+                    "object": "refer to the Disaster Recovery Plan"
+                },
+                {
+                    "subject": "refer to the Disaster Recovery Plan",
+                    "predicate": "ASSOCIATION",
+                    "object": "Disaster Recovery Plan"
+                },
+                {
+                    "subject": "refer to the Disaster Recovery Plan",
+                    "predicate": "ASSOCIATION",
+                    "object": "grant proposals"
+                },
+                {
+                    "subject": "refer to the Disaster Recovery Plan",
+                    "predicate": "ASSOCIATION",
+                    "object": "Data Management Plans"
+                }
+            ]
+        }
     },
     {
         "id": 21785,
         "text": "As an API user, I want to be able to change the colors of the embedded visualisations in my own platform, So that I can customize the visualisations.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "API user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "change the colors of the embedded visualisations",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "customize the visualisations",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "embedded visualisations",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "own platform",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "colors",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "API user",
+                    "predicate": "PERFORMS",
+                    "object": "change the colors of the embedded visualisations"
+                },
+                {
+                    "subject": "API user",
+                    "predicate": "PERFORMS",
+                    "object": "customize the visualisations"
+                },
+                {
+                    "subject": "change the colors of the embedded visualisations",
+                    "predicate": "PRECEDES",
+                    "object": "customize the visualisations"
+                },
+                {
+                    "subject": "own platform",
+                    "predicate": "CONTAINS",
+                    "object": "embedded visualisations"
+                },
+                {
+                    "subject": "embedded visualisations",
+                    "predicate": "OWNS",
+                    "object": "colors"
+                },
+                {
+                    "subject": "change the colors of the embedded visualisations",
+                    "predicate": "ASSOCIATION",
+                    "object": "embedded visualisations"
+                }
+            ]
+        }
     },
     {
         "id": 21786,
         "text": "A user must be logged on to be able to view or edit any medical information.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "logged on",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "view or edit",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "medical information",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "logged on"
+                },
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "view or edit"
+                },
+                {
+                    "subject": "logged on",
+                    "predicate": "PRECEDES",
+                    "object": "view or edit"
+                },
+                {
+                    "subject": "view or edit",
+                    "predicate": "ASSOCIATION",
+                    "object": "medical information"
+                }
+            ]
+        }
     },
     {
         "id": 21787,
         "text": "The THEMAS system shall ensure the temperature reported by a given thermostat shall not exceed a maximum deviation value of 3 degrees Fahrenheit.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "THEMAS system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "thermostat",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "temperature",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "maximum deviation value",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "THEMAS system",
+                    "predicate": "ASSOCIATION",
+                    "object": "thermostat"
+                },
+                {
+                    "subject": "thermostat",
+                    "predicate": "OWNS",
+                    "object": "temperature"
+                },
+                {
+                    "subject": "temperature",
+                    "predicate": "OWNS",
+                    "object": "maximum deviation value"
+                }
+            ]
+        }
     },
     {
         "id": 21788,
         "text": "The DUAP Persistent Data Services shall be able to archive cached (raw and derived) traffic data.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "DUAP Persistent Data Services",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "archive cached traffic data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "traffic data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "raw",
+                    "label": "BOOLEAN_ATTRIBUTE"
+                },
+                {
+                    "text": "derived",
+                    "label": "BOOLEAN_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "DUAP Persistent Data Services",
+                    "predicate": "CONTAINS",
+                    "object": "archive cached traffic data"
+                },
+                {
+                    "subject": "archive cached traffic data",
+                    "predicate": "ASSOCIATION",
+                    "object": "traffic data"
+                },
+                {
+                    "subject": "traffic data",
+                    "predicate": "OWNS",
+                    "object": "raw"
+                },
+                {
+                    "subject": "traffic data",
+                    "predicate": "OWNS",
+                    "object": "derived"
+                }
+            ]
+        }
     },
     {
         "id": 21789,
         "text": "The Disputes System must allow the users to select disputable transactions (based on the age of the transaction) from a user interface and initiate a dispute (ticket retrieval request or chargeback notification) on the selected transaction.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Disputes System",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "users",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "select disputable transactions",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "initiate a dispute",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "disputable transactions",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "user interface",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "ticket retrieval request",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "chargeback notification",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "age of the transaction",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Disputes System",
+                    "predicate": "CONTAINS",
+                    "object": "select disputable transactions"
+                },
+                {
+                    "subject": "Disputes System",
+                    "predicate": "CONTAINS",
+                    "object": "initiate a dispute"
+                },
+                {
+                    "subject": "users",
+                    "predicate": "PERFORMS",
+                    "object": "select disputable transactions"
+                },
+                {
+                    "subject": "users",
+                    "predicate": "PERFORMS",
+                    "object": "initiate a dispute"
+                },
+                {
+                    "subject": "select disputable transactions",
+                    "predicate": "PRECEDES",
+                    "object": "initiate a dispute"
+                },
+                {
+                    "subject": "select disputable transactions",
+                    "predicate": "ASSOCIATION",
+                    "object": "disputable transactions"
+                },
+                {
+                    "subject": "select disputable transactions",
+                    "predicate": "ASSOCIATION",
+                    "object": "user interface"
+                },
+                {
+                    "subject": "disputable transactions",
+                    "predicate": "OWNS",
+                    "object": "age of the transaction"
+                },
+                {
+                    "subject": "initiate a dispute",
+                    "predicate": "ASSOCIATION",
+                    "object": "ticket retrieval request"
+                },
+                {
+                    "subject": "initiate a dispute",
+                    "predicate": "ASSOCIATION",
+                    "object": "chargeback notification"
+                },
+                {
+                    "subject": "ticket retrieval request",
+                    "predicate": "IS_A",
+                    "object": "initiate a dispute"
+                },
+                {
+                    "subject": "chargeback notification",
+                    "predicate": "IS_A",
+                    "object": "initiate a dispute"
+                }
+            ]
+        }
     },
     {
         "id": 21790,
         "text": "As a Data Publishing User, I want to have the Packager support Constants, So that I can model dimensions that may not exist in the source file.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Data Publishing User",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "Packager support Constants",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "model dimensions",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "Packager",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "Constants",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "dimensions",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "source file",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Data Publishing User",
+                    "predicate": "PERFORMS",
+                    "object": "Packager support Constants"
+                },
+                {
+                    "subject": "Data Publishing User",
+                    "predicate": "PERFORMS",
+                    "object": "model dimensions"
+                },
+                {
+                    "subject": "Packager support Constants",
+                    "predicate": "PRECEDES",
+                    "object": "model dimensions"
+                },
+                {
+                    "subject": "Packager support Constants",
+                    "predicate": "ASSOCIATION",
+                    "object": "Constants"
+                },
+                {
+                    "subject": "model dimensions",
+                    "predicate": "ASSOCIATION",
+                    "object": "dimensions"
+                },
+                {
+                    "subject": "dimensions",
+                    "predicate": "ASSOCIATION",
+                    "object": "source file"
+                }
+            ]
+        }
     },
     {
         "id": 21791,
         "text": "The system shall analyze the detected vulnerability",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "analyze the detected vulnerability",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "detected vulnerability",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "analyze the detected vulnerability"
+                },
+                {
+                    "subject": "analyze the detected vulnerability",
+                    "predicate": "ASSOCIATION",
+                    "object": "detected vulnerability"
+                }
+            ]
+        }
     },
     {
         "id": 21792,
         "text": "If the leads score falls within the high average score then it will be process by the ARA functionality.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "leads",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "score",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "high average score",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "ARA functionality",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "process",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "leads",
+                    "predicate": "OWNS",
+                    "object": "score"
+                },
+                {
+                    "subject": "score",
+                    "predicate": "ASSOCIATION",
+                    "object": "high average score"
+                },
+                {
+                    "subject": "ARA functionality",
+                    "predicate": "CONTAINS",
+                    "object": "process"
+                },
+                {
+                    "subject": "process",
+                    "predicate": "ASSOCIATION",
+                    "object": "leads"
+                }
+            ]
+        }
     },
     {
         "id": 21793,
         "text": "The system shall allow modification of the display.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "modification of the display",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "display",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "modification of the display"
+                },
+                {
+                    "subject": "modification of the display",
+                    "predicate": "ASSOCIATION",
+                    "object": "display"
+                }
+            ]
+        }
     },
     {
         "id": 21794,
         "text": "As a MedicalCaregiver, I want to have ALFRED to be able to determine the user's blood pressure.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "MedicalCaregiver",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "ALFRED",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "determine the user's blood pressure",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "blood pressure",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "MedicalCaregiver",
+                    "predicate": "PERFORMS",
+                    "object": "determine the user's blood pressure"
+                },
+                {
+                    "subject": "ALFRED",
+                    "predicate": "CONTAINS",
+                    "object": "determine the user's blood pressure"
+                },
+                {
+                    "subject": "user",
+                    "predicate": "OWNS",
+                    "object": "blood pressure"
+                },
+                {
+                    "subject": "determine the user's blood pressure",
+                    "predicate": "ASSOCIATION",
+                    "object": "blood pressure"
+                }
+            ]
+        }
     },
     {
         "id": 21795,
         "text": "As an OlderPerson, I want to have an ALFRED device that helps me to communicate with my friends and family.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "OlderPerson",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "ALFRED device",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "communicate with my friends and family",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "friends",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "family",
+                    "label": "ACTOR"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "OlderPerson",
+                    "predicate": "PERFORMS",
+                    "object": "communicate with my friends and family"
+                },
+                {
+                    "subject": "ALFRED device",
+                    "predicate": "CONTAINS",
+                    "object": "communicate with my friends and family"
+                },
+                {
+                    "subject": "communicate with my friends and family",
+                    "predicate": "ASSOCIATION",
+                    "object": "friends"
+                },
+                {
+                    "subject": "communicate with my friends and family",
+                    "predicate": "ASSOCIATION",
+                    "object": "family"
+                }
+            ]
+        }
     },
     {
         "id": 21796,
         "text": "Systems supporting OM should have the ability to classify entities associated with the investigation as investigation controls. For example, controls share demographic characteristics with the subject of the case, but are not infected with the agent that is the focus of the investigation.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Systems supporting OM",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "classify entities as investigation controls",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "investigation controls",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "subject of the case",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "demographic characteristics",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "infected with the agent",
+                    "label": "BOOLEAN_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Systems supporting OM",
+                    "predicate": "CONTAINS",
+                    "object": "classify entities as investigation controls"
+                },
+                {
+                    "subject": "classify entities as investigation controls",
+                    "predicate": "ASSOCIATION",
+                    "object": "investigation controls"
+                },
+                {
+                    "subject": "investigation controls",
+                    "predicate": "ASSOCIATION",
+                    "object": "subject of the case"
+                },
+                {
+                    "subject": "investigation controls",
+                    "predicate": "OWNS",
+                    "object": "demographic characteristics"
+                },
+                {
+                    "subject": "subject of the case",
+                    "predicate": "OWNS",
+                    "object": "demographic characteristics"
+                },
+                {
+                    "subject": "investigation controls",
+                    "predicate": "OWNS",
+                    "object": "infected with the agent"
+                }
+            ]
+        }
     },
     {
         "id": 21797,
         "text": "Program Administrators/Nursing Staff Members shall be able to cancel a clinical lab section only if there are no students registered for that clinical lab section.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Program Administrators",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "Nursing Staff Members",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "cancel a clinical lab section",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "clinical lab section",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "students",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "registered",
+                    "label": "BOOLEAN_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Program Administrators",
+                    "predicate": "PERFORMS",
+                    "object": "cancel a clinical lab section"
+                },
+                {
+                    "subject": "Nursing Staff Members",
+                    "predicate": "PERFORMS",
+                    "object": "cancel a clinical lab section"
+                },
+                {
+                    "subject": "cancel a clinical lab section",
+                    "predicate": "ASSOCIATION",
+                    "object": "clinical lab section"
+                },
+                {
+                    "subject": "students",
+                    "predicate": "ASSOCIATION",
+                    "object": "clinical lab section"
+                },
+                {
+                    "subject": "students",
+                    "predicate": "OWNS",
+                    "object": "registered"
+                }
+            ]
+        }
     },
     {
         "id": 21798,
         "text": "As a developer, I want to use a configuration that is not prepackaged within a built version of application.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "developer",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "use a configuration",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "configuration",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "application",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "built version",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "prepackaged",
+                    "label": "BOOLEAN_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "developer",
+                    "predicate": "PERFORMS",
+                    "object": "use a configuration"
+                },
+                {
+                    "subject": "use a configuration",
+                    "predicate": "ASSOCIATION",
+                    "object": "configuration"
+                },
+                {
+                    "subject": "application",
+                    "predicate": "ASSOCIATION",
+                    "object": "built version"
+                },
+                {
+                    "subject": "built version",
+                    "predicate": "ASSOCIATION",
+                    "object": "configuration"
+                },
+                {
+                    "subject": "configuration",
+                    "predicate": "OWNS",
+                    "object": "prepackaged"
+                }
+            ]
+        }
     },
     {
         "id": 21799,
         "text": "Ability for the agency admin to search the e-mail \"header\" including Date: From, Subject, To, and CC.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "agency admin",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "search the e-mail \"header\"",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "e-mail \"header\"",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "Date",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "From",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "Subject",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "To",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "CC",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "agency admin",
+                    "predicate": "PERFORMS",
+                    "object": "search the e-mail \"header\""
+                },
+                {
+                    "subject": "search the e-mail \"header\"",
+                    "predicate": "ASSOCIATION",
+                    "object": "e-mail \"header\""
+                },
+                {
+                    "subject": "e-mail \"header\"",
+                    "predicate": "OWNS",
+                    "object": "Date"
+                },
+                {
+                    "subject": "e-mail \"header\"",
+                    "predicate": "OWNS",
+                    "object": "From"
+                },
+                {
+                    "subject": "e-mail \"header\"",
+                    "predicate": "OWNS",
+                    "object": "Subject"
+                },
+                {
+                    "subject": "e-mail \"header\"",
+                    "predicate": "OWNS",
+                    "object": "To"
+                },
+                {
+                    "subject": "e-mail \"header\"",
+                    "predicate": "OWNS",
+                    "object": "CC"
+                }
+            ]
+        }
     },
     {
         "id": 21800,
         "text": "The system shall enable creation and editing of user details.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "creation and editing of user details",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "user details",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "creation and editing of user details"
+                },
+                {
+                    "subject": "creation and editing of user details",
+                    "predicate": "ASSOCIATION",
+                    "object": "user details"
+                }
+            ]
+        }
     },
     {
         "id": 21801,
         "text": "As a researcher, I want to search using structured data, so that I can find everything relevant to my inquiry across collections.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "researcher",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "search using structured data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "find everything relevant to my inquiry",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "structured data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "collections",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "inquiry",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "researcher",
+                    "predicate": "PERFORMS",
+                    "object": "search using structured data"
+                },
+                {
+                    "subject": "researcher",
+                    "predicate": "PERFORMS",
+                    "object": "find everything relevant to my inquiry"
+                },
+                {
+                    "subject": "search using structured data",
+                    "predicate": "PRECEDES",
+                    "object": "find everything relevant to my inquiry"
+                },
+                {
+                    "subject": "search using structured data",
+                    "predicate": "ASSOCIATION",
+                    "object": "structured data"
+                },
+                {
+                    "subject": "find everything relevant to my inquiry",
+                    "predicate": "ASSOCIATION",
+                    "object": "collections"
+                },
+                {
+                    "subject": "find everything relevant to my inquiry",
+                    "predicate": "ASSOCIATION",
+                    "object": "inquiry"
+                }
+            ]
+        }
     },
     {
         "id": 21802,
         "text": "As a Plan Review Staff Member, I want to Review the Code Modifications submitted by the Applicant, so that I can review the request and if approved, associate it with the appropriate project.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Plan Review Staff Member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "Review the Code Modifications",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "review the request",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "associate it with the appropriate project",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "Code Modifications",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "Applicant",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "request",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "project",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "approved",
+                    "label": "BOOLEAN_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Plan Review Staff Member",
+                    "predicate": "PERFORMS",
+                    "object": "Review the Code Modifications"
+                },
+                {
+                    "subject": "Plan Review Staff Member",
+                    "predicate": "PERFORMS",
+                    "object": "review the request"
+                },
+                {
+                    "subject": "Plan Review Staff Member",
+                    "predicate": "PERFORMS",
+                    "object": "associate it with the appropriate project"
+                },
+                {
+                    "subject": "Review the Code Modifications",
+                    "predicate": "PRECEDES",
+                    "object": "review the request"
+                },
+                {
+                    "subject": "review the request",
+                    "predicate": "PRECEDES",
+                    "object": "associate it with the appropriate project"
+                },
+                {
+                    "subject": "Review the Code Modifications",
+                    "predicate": "ASSOCIATION",
+                    "object": "Code Modifications"
+                },
+                {
+                    "subject": "Applicant",
+                    "predicate": "ASSOCIATION",
+                    "object": "Code Modifications"
+                },
+                {
+                    "subject": "review the request",
+                    "predicate": "ASSOCIATION",
+                    "object": "request"
+                },
+                {
+                    "subject": "request",
+                    "predicate": "OWNS",
+                    "object": "approved"
+                },
+                {
+                    "subject": "associate it with the appropriate project",
+                    "predicate": "ASSOCIATION",
+                    "object": "project"
+                }
+            ]
+        }
     },
     {
         "id": 21803,
         "text": "As a Data Consuming User, I want to be able to filter, sort and aggregate data by multiple dimensions and measures, So that I can get more granular views on the data.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Data Consuming User",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "filter, sort and aggregate data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "get more granular views on the data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "dimensions",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "measures",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "views",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Data Consuming User",
+                    "predicate": "PERFORMS",
+                    "object": "filter, sort and aggregate data"
+                },
+                {
+                    "subject": "Data Consuming User",
+                    "predicate": "PERFORMS",
+                    "object": "get more granular views on the data"
+                },
+                {
+                    "subject": "filter, sort and aggregate data",
+                    "predicate": "PRECEDES",
+                    "object": "get more granular views on the data"
+                },
+                {
+                    "subject": "filter, sort and aggregate data",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                },
+                {
+                    "subject": "filter, sort and aggregate data",
+                    "predicate": "ASSOCIATION",
+                    "object": "dimensions"
+                },
+                {
+                    "subject": "filter, sort and aggregate data",
+                    "predicate": "ASSOCIATION",
+                    "object": "measures"
+                },
+                {
+                    "subject": "get more granular views on the data",
+                    "predicate": "ASSOCIATION",
+                    "object": "views"
+                },
+                {
+                    "subject": "views",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                }
+            ]
+        }
     },
     {
         "id": 21804,
         "text": "As a participant, I want to have a small thumbnail photo displayed near where my cards are played, so that the game is more personal because I see who I'm estimating with.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "participant",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "display thumbnail photo",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "thumbnail photo",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "cards",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "game",
+                    "label": "SYSTEM_BOUNDARY"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "participant",
+                    "predicate": "PERFORMS",
+                    "object": "display thumbnail photo"
+                },
+                {
+                    "subject": "game",
+                    "predicate": "CONTAINS",
+                    "object": "display thumbnail photo"
+                },
+                {
+                    "subject": "display thumbnail photo",
+                    "predicate": "ASSOCIATION",
+                    "object": "thumbnail photo"
+                },
+                {
+                    "subject": "display thumbnail photo",
+                    "predicate": "ASSOCIATION",
+                    "object": "cards"
+                },
+                {
+                    "subject": "participant",
+                    "predicate": "OWNS",
+                    "object": "cards"
+                },
+                {
+                    "subject": "participant",
+                    "predicate": "OWNS",
+                    "object": "thumbnail photo"
+                }
+            ]
+        }
     },
     {
         "id": 21805,
         "text": "The meeting scheduler system shall be able to select a participant as an important participant.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "meeting scheduler system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "select a participant as an important participant",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "participant",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "important participant",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "meeting scheduler system",
+                    "predicate": "CONTAINS",
+                    "object": "select a participant as an important participant"
+                },
+                {
+                    "subject": "select a participant as an important participant",
+                    "predicate": "ASSOCIATION",
+                    "object": "participant"
+                },
+                {
+                    "subject": "important participant",
+                    "predicate": "IS_A",
+                    "object": "participant"
+                }
+            ]
+        }
     },
     {
         "id": 21806,
         "text": "As a publisher, I want to be able to check that every time I update my data it is still good, so that I can catch errors early and store reliable data.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "publisher",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "check that data is still good",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "update data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "catch errors early",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "store reliable data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "errors",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "publisher",
+                    "predicate": "PERFORMS",
+                    "object": "update data"
+                },
+                {
+                    "subject": "publisher",
+                    "predicate": "PERFORMS",
+                    "object": "check that data is still good"
+                },
+                {
+                    "subject": "update data",
+                    "predicate": "PRECEDES",
+                    "object": "check that data is still good"
+                },
+                {
+                    "subject": "check that data is still good",
+                    "predicate": "PRECEDES",
+                    "object": "catch errors early"
+                },
+                {
+                    "subject": "catch errors early",
+                    "predicate": "PRECEDES",
+                    "object": "store reliable data"
+                },
+                {
+                    "subject": "update data",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                },
+                {
+                    "subject": "check that data is still good",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                },
+                {
+                    "subject": "catch errors early",
+                    "predicate": "ASSOCIATION",
+                    "object": "errors"
+                },
+                {
+                    "subject": "store reliable data",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                }
+            ]
+        }
     },
     {
         "id": 21807,
         "text": "As an Application Administrator , I want to be able to configure the help center URL and topic mappings.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Application Administrator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "configure the help center URL and topic mappings",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "help center URL",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "topic mappings",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Application Administrator",
+                    "predicate": "PERFORMS",
+                    "object": "configure the help center URL and topic mappings"
+                },
+                {
+                    "subject": "configure the help center URL and topic mappings",
+                    "predicate": "ASSOCIATION",
+                    "object": "help center URL"
+                },
+                {
+                    "subject": "configure the help center URL and topic mappings",
+                    "predicate": "ASSOCIATION",
+                    "object": "topic mappings"
+                }
+            ]
+        }
     },
     {
         "id": 21808,
         "text": "As an admin, I want to be able to block specific users based on IP address, so that I can prevent spamming on the websites.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "admin",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "block specific users",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "prevent spamming on the websites",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "users",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "IP address",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "websites",
+                    "label": "SYSTEM_BOUNDARY"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "admin",
+                    "predicate": "PERFORMS",
+                    "object": "block specific users"
+                },
+                {
+                    "subject": "admin",
+                    "predicate": "PERFORMS",
+                    "object": "prevent spamming on the websites"
+                },
+                {
+                    "subject": "block specific users",
+                    "predicate": "PRECEDES",
+                    "object": "prevent spamming on the websites"
+                },
+                {
+                    "subject": "users",
+                    "predicate": "OWNS",
+                    "object": "IP address"
+                },
+                {
+                    "subject": "block specific users",
+                    "predicate": "ASSOCIATION",
+                    "object": "users"
+                },
+                {
+                    "subject": "block specific users",
+                    "predicate": "ASSOCIATION",
+                    "object": "IP address"
+                },
+                {
+                    "subject": "websites",
+                    "predicate": "CONTAINS",
+                    "object": "prevent spamming on the websites"
+                }
+            ]
+        }
     },
     {
         "id": 21809,
         "text": "The system shall provide an interface to communicate with an external service or third-party software. A set of standard interfaces25 will be defined for this capability.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "interface",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "external service",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "third-party software",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "standard interfaces25",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "communicate with an external service or third-party software",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "communicate with an external service or third-party software"
+                },
+                {
+                    "subject": "communicate with an external service or third-party software",
+                    "predicate": "ASSOCIATION",
+                    "object": "interface"
+                },
+                {
+                    "subject": "communicate with an external service or third-party software",
+                    "predicate": "ASSOCIATION",
+                    "object": "external service"
+                },
+                {
+                    "subject": "communicate with an external service or third-party software",
+                    "predicate": "ASSOCIATION",
+                    "object": "third-party software"
+                },
+                {
+                    "subject": "standard interfaces25",
+                    "predicate": "IS_A",
+                    "object": "interface"
+                }
+            ]
+        }
     },
     {
         "id": 21810,
         "text": "The system shall permit user credentials registration.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "user credentials registration",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "user credentials",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "user credentials registration"
+                },
+                {
+                    "subject": "user credentials registration",
+                    "predicate": "ASSOCIATION",
+                    "object": "user credentials"
+                }
+            ]
+        }
     },
     {
         "id": 21811,
         "text": "The user shall be able to expand displayed nodes (provided it is possible to expand the selected nodes). The HATS-GUI shall change the graph display by adding the descendant nodes to the displayed graph (thus changing the expandable nodes to internal nodes).",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "expand displayed nodes",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "displayed nodes",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "HATS-GUI",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "change the graph display",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "graph display",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "descendant nodes",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "expandable nodes",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "internal nodes",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "expand displayed nodes"
+                },
+                {
+                    "subject": "HATS-GUI",
+                    "predicate": "CONTAINS",
+                    "object": "expand displayed nodes"
+                },
+                {
+                    "subject": "expand displayed nodes",
+                    "predicate": "PRECEDES",
+                    "object": "change the graph display"
+                },
+                {
+                    "subject": "HATS-GUI",
+                    "predicate": "CONTAINS",
+                    "object": "change the graph display"
+                },
+                {
+                    "subject": "expand displayed nodes",
+                    "predicate": "ASSOCIATION",
+                    "object": "displayed nodes"
+                },
+                {
+                    "subject": "change the graph display",
+                    "predicate": "ASSOCIATION",
+                    "object": "graph display"
+                },
+                {
+                    "subject": "change the graph display",
+                    "predicate": "ASSOCIATION",
+                    "object": "descendant nodes"
+                },
+                {
+                    "subject": "displayed nodes",
+                    "predicate": "IS_A",
+                    "object": "expandable nodes"
+                },
+                {
+                    "subject": "internal nodes",
+                    "predicate": "IS_A",
+                    "object": "displayed nodes"
+                }
+            ]
+        }
     },
     {
         "id": 21812,
         "text": "The system shall be able to pre-process the unstructured data into meaning information and match with existing keywords in database.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "pre-process the unstructured data into meaning information",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "match with existing keywords in database",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "unstructured data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "meaning information",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "keywords",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "database",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "pre-process the unstructured data into meaning information"
+                },
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "match with existing keywords in database"
+                },
+                {
+                    "subject": "pre-process the unstructured data into meaning information",
+                    "predicate": "PRECEDES",
+                    "object": "match with existing keywords in database"
+                },
+                {
+                    "subject": "pre-process the unstructured data into meaning information",
+                    "predicate": "ASSOCIATION",
+                    "object": "unstructured data"
+                },
+                {
+                    "subject": "pre-process the unstructured data into meaning information",
+                    "predicate": "ASSOCIATION",
+                    "object": "meaning information"
+                },
+                {
+                    "subject": "match with existing keywords in database",
+                    "predicate": "ASSOCIATION",
+                    "object": "keywords"
+                },
+                {
+                    "subject": "match with existing keywords in database",
+                    "predicate": "ASSOCIATION",
+                    "object": "database"
+                },
+                {
+                    "subject": "database",
+                    "predicate": "CONTAINS",
+                    "object": "keywords"
+                }
+            ]
+        }
     },
     {
         "id": 21813,
         "text": "The system administrator shall be able to configure the recalculation behavior of the derived data. The options shall include 1) do nothing, 2) alert user that recalculation is required and give option to recalculate before update/save, and 3) recalculate silently with no confirmation prompt when user saves the inspection.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "system administrator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "configure the recalculation behavior",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "recalculation behavior",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "derived data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "do nothing",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "alert user that recalculation is required",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "recalculate silently",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "inspection",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "system administrator",
+                    "predicate": "PERFORMS",
+                    "object": "configure the recalculation behavior"
+                },
+                {
+                    "subject": "configure the recalculation behavior",
+                    "predicate": "ASSOCIATION",
+                    "object": "recalculation behavior"
+                },
+                {
+                    "subject": "recalculation behavior",
+                    "predicate": "ASSOCIATION",
+                    "object": "derived data"
+                },
+                {
+                    "subject": "do nothing",
+                    "predicate": "IS_A",
+                    "object": "recalculation behavior"
+                },
+                {
+                    "subject": "alert user that recalculation is required",
+                    "predicate": "IS_A",
+                    "object": "recalculation behavior"
+                },
+                {
+                    "subject": "recalculate silently",
+                    "predicate": "IS_A",
+                    "object": "recalculation behavior"
+                },
+                {
+                    "subject": "alert user that recalculation is required",
+                    "predicate": "ASSOCIATION",
+                    "object": "user"
+                },
+                {
+                    "subject": "recalculate silently",
+                    "predicate": "ASSOCIATION",
+                    "object": "inspection"
+                }
+            ]
+        }
     },
     {
         "id": 21814,
         "text": "As a Zooniverse admin,I want to know which piece of education I should give to a volunteer.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Zooniverse admin",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "know which piece of education I should give",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "piece of education",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "volunteer",
+                    "label": "ACTOR"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Zooniverse admin",
+                    "predicate": "PERFORMS",
+                    "object": "know which piece of education I should give"
+                },
+                {
+                    "subject": "know which piece of education I should give",
+                    "predicate": "ASSOCIATION",
+                    "object": "piece of education"
+                },
+                {
+                    "subject": "know which piece of education I should give",
+                    "predicate": "ASSOCIATION",
+                    "object": "volunteer"
+                }
+            ]
+        }
     },
     {
         "id": 21815,
         "text": "The recycled parts search results provided to the estimator shall be retrieved by the system.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "retrieve recycled parts search results",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "estimator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "recycled parts search results",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "retrieve recycled parts search results"
+                },
+                {
+                    "subject": "retrieve recycled parts search results",
+                    "predicate": "ASSOCIATION",
+                    "object": "recycled parts search results"
+                },
+                {
+                    "subject": "retrieve recycled parts search results",
+                    "predicate": "ASSOCIATION",
+                    "object": "estimator"
+                }
+            ]
+        }
     },
     {
         "id": 21816,
         "text": "The system shall be monitoring and scanning the network",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "The system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "monitoring and scanning the network",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "network",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "The system",
+                    "predicate": "CONTAINS",
+                    "object": "monitoring and scanning the network"
+                },
+                {
+                    "subject": "monitoring and scanning the network",
+                    "predicate": "ASSOCIATION",
+                    "object": "network"
+                }
+            ]
+        }
     },
     {
         "id": 21817,
         "text": "As an academicresearcher, I want to find the works of a particular author in one easily sortable spot, so that I can see the evolution of their scholarship over time.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "academicresearcher",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "find the works of a particular author",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "sort works",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "works",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "author",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "scholarship",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "academicresearcher",
+                    "predicate": "PERFORMS",
+                    "object": "find the works of a particular author"
+                },
+                {
+                    "subject": "academicresearcher",
+                    "predicate": "PERFORMS",
+                    "object": "sort works"
+                },
+                {
+                    "subject": "find the works of a particular author",
+                    "predicate": "PRECEDES",
+                    "object": "sort works"
+                },
+                {
+                    "subject": "find the works of a particular author",
+                    "predicate": "ASSOCIATION",
+                    "object": "works"
+                },
+                {
+                    "subject": "find the works of a particular author",
+                    "predicate": "ASSOCIATION",
+                    "object": "author"
+                },
+                {
+                    "subject": "sort works",
+                    "predicate": "ASSOCIATION",
+                    "object": "works"
+                },
+                {
+                    "subject": "works",
+                    "predicate": "IS_A",
+                    "object": "scholarship"
+                },
+                {
+                    "subject": "author",
+                    "predicate": "OWNS",
+                    "object": "works"
+                }
+            ]
+        }
     },
     {
         "id": 21818,
         "text": "As a researcher, I want to see descriptive metadata for the item whether I come to the item through the repository or directly to the PDF, so that I can correctly identify the source of the content.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "researcher",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "see descriptive metadata for the item",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "identify the source of the content",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "descriptive metadata",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "item",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "repository",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "PDF",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "content",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "researcher",
+                    "predicate": "PERFORMS",
+                    "object": "see descriptive metadata for the item"
+                },
+                {
+                    "subject": "researcher",
+                    "predicate": "PERFORMS",
+                    "object": "identify the source of the content"
+                },
+                {
+                    "subject": "see descriptive metadata for the item",
+                    "predicate": "PRECEDES",
+                    "object": "identify the source of the content"
+                },
+                {
+                    "subject": "see descriptive metadata for the item",
+                    "predicate": "ASSOCIATION",
+                    "object": "descriptive metadata"
+                },
+                {
+                    "subject": "see descriptive metadata for the item",
+                    "predicate": "ASSOCIATION",
+                    "object": "item"
+                },
+                {
+                    "subject": "repository",
+                    "predicate": "CONTAINS",
+                    "object": "item"
+                },
+                {
+                    "subject": "PDF",
+                    "predicate": "IS_A",
+                    "object": "item"
+                },
+                {
+                    "subject": "identify the source of the content",
+                    "predicate": "ASSOCIATION",
+                    "object": "content"
+                },
+                {
+                    "subject": "item",
+                    "predicate": "ASSOCIATION",
+                    "object": "content"
+                }
+            ]
+        }
     },
     {
         "id": 21819,
         "text": "As a Developer, I want an SPSS integration, so that I can integrate data-packaged data with pipelines that use SPSS.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Developer",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "SPSS integration",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "integrate data-packaged data with pipelines",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "data-packaged data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "pipelines",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "SPSS",
+                    "label": "SYSTEM_BOUNDARY"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Developer",
+                    "predicate": "PERFORMS",
+                    "object": "SPSS integration"
+                },
+                {
+                    "subject": "Developer",
+                    "predicate": "PERFORMS",
+                    "object": "integrate data-packaged data with pipelines"
+                },
+                {
+                    "subject": "SPSS integration",
+                    "predicate": "PRECEDES",
+                    "object": "integrate data-packaged data with pipelines"
+                },
+                {
+                    "subject": "integrate data-packaged data with pipelines",
+                    "predicate": "ASSOCIATION",
+                    "object": "data-packaged data"
+                },
+                {
+                    "subject": "integrate data-packaged data with pipelines",
+                    "predicate": "ASSOCIATION",
+                    "object": "pipelines"
+                },
+                {
+                    "subject": "pipelines",
+                    "predicate": "ASSOCIATION",
+                    "object": "SPSS"
+                },
+                {
+                    "subject": "SPSS",
+                    "predicate": "CONTAINS",
+                    "object": "pipelines"
+                }
+            ]
+        }
     },
     {
         "id": 21820,
         "text": "As a repository manager, I want to say one collection is related to another collection.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "repository manager",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "relate one collection to another",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "collection",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "repository manager",
+                    "predicate": "PERFORMS",
+                    "object": "relate one collection to another"
+                },
+                {
+                    "subject": "relate one collection to another",
+                    "predicate": "ASSOCIATION",
+                    "object": "collection"
+                },
+                {
+                    "subject": "collection",
+                    "predicate": "ASSOCIATION",
+                    "object": "collection"
+                }
+            ]
+        }
     },
     {
         "id": 21821,
         "text": "Enable a user to view questions and their corresponding answers.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "view questions and their corresponding answers",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "questions",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "answers",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "view questions and their corresponding answers"
+                },
+                {
+                    "subject": "view questions and their corresponding answers",
+                    "predicate": "ASSOCIATION",
+                    "object": "questions"
+                },
+                {
+                    "subject": "view questions and their corresponding answers",
+                    "predicate": "ASSOCIATION",
+                    "object": "answers"
+                },
+                {
+                    "subject": "questions",
+                    "predicate": "ASSOCIATION",
+                    "object": "answers"
+                }
+            ]
+        }
     },
     {
         "id": 21822,
         "text": "As a Director of Research Integrity, I want to access reports containing details of research projects in which data are classified as sensitive or highly sensitive, so that I can confirm security protocols are applied to these data.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Director of Research Integrity",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "access reports",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "confirm security protocols are applied",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "reports",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "research projects",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "sensitive",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "highly sensitive",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "security protocols",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Director of Research Integrity",
+                    "predicate": "PERFORMS",
+                    "object": "access reports"
+                },
+                {
+                    "subject": "Director of Research Integrity",
+                    "predicate": "PERFORMS",
+                    "object": "confirm security protocols are applied"
+                },
+                {
+                    "subject": "access reports",
+                    "predicate": "PRECEDES",
+                    "object": "confirm security protocols are applied"
+                },
+                {
+                    "subject": "access reports",
+                    "predicate": "ASSOCIATION",
+                    "object": "reports"
+                },
+                {
+                    "subject": "reports",
+                    "predicate": "CONTAINS",
+                    "object": "research projects"
+                },
+                {
+                    "subject": "research projects",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                },
+                {
+                    "subject": "data",
+                    "predicate": "HAS_ATTRIBUTE",
+                    "object": "sensitive"
+                },
+                {
+                    "subject": "data",
+                    "predicate": "HAS_ATTRIBUTE",
+                    "object": "highly sensitive"
+                },
+                {
+                    "subject": "confirm security protocols are applied",
+                    "predicate": "ASSOCIATION",
+                    "object": "security protocols"
+                },
+                {
+                    "subject": "security protocols",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                }
+            ]
+        }
     },
     {
         "id": 21823,
         "text": "As a library staff member, I want to be able to tell the researchers I'm helping with DMPs that Cornell has a repository system I can use for archiving and sharing results of their research, so that I can easily meet the needs of funder DMP requirements.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "library staff member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "researchers",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "tell the researchers Cornell has a repository system",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "archiving and sharing results",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "meet the needs of funder DMP requirements",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "DMPs",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "repository system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "results of research",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "funder DMP requirements",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "library staff member",
+                    "predicate": "PERFORMS",
+                    "object": "tell the researchers Cornell has a repository system"
+                },
+                {
+                    "subject": "library staff member",
+                    "predicate": "PERFORMS",
+                    "object": "archiving and sharing results"
+                },
+                {
+                    "subject": "library staff member",
+                    "predicate": "PERFORMS",
+                    "object": "meet the needs of funder DMP requirements"
+                },
+                {
+                    "subject": "tell the researchers Cornell has a repository system",
+                    "predicate": "ASSOCIATION",
+                    "object": "researchers"
+                },
+                {
+                    "subject": "tell the researchers Cornell has a repository system",
+                    "predicate": "ASSOCIATION",
+                    "object": "DMPs"
+                },
+                {
+                    "subject": "archiving and sharing results",
+                    "predicate": "ASSOCIATION",
+                    "object": "results of research"
+                },
+                {
+                    "subject": "repository system",
+                    "predicate": "CONTAINS",
+                    "object": "archiving and sharing results"
+                },
+                {
+                    "subject": "meet the needs of funder DMP requirements",
+                    "predicate": "ASSOCIATION",
+                    "object": "funder DMP requirements"
+                },
+                {
+                    "subject": "DMPs",
+                    "predicate": "ASSOCIATION",
+                    "object": "funder DMP requirements"
+                }
+            ]
+        }
     },
     {
         "id": 21824,
         "text": "As an OlderPerson, I want to play games where I can use my Imagination.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "OlderPerson",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "play games",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "use my Imagination",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "games",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "Imagination",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "OlderPerson",
+                    "predicate": "PERFORMS",
+                    "object": "play games"
+                },
+                {
+                    "subject": "OlderPerson",
+                    "predicate": "PERFORMS",
+                    "object": "use my Imagination"
+                },
+                {
+                    "subject": "play games",
+                    "predicate": "ASSOCIATION",
+                    "object": "games"
+                },
+                {
+                    "subject": "play games",
+                    "predicate": "ASSOCIATION",
+                    "object": "use my Imagination"
+                },
+                {
+                    "subject": "use my Imagination",
+                    "predicate": "ASSOCIATION",
+                    "object": "Imagination"
+                }
+            ]
+        }
     },
     {
         "id": 21825,
         "text": "Lag Sets - The BE shall be able to handle lag sets up to a maximum size of 262,144 values.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "BE",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "handle lag sets",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "lag sets",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "maximum size of 262,144 values",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "BE",
+                    "predicate": "CONTAINS",
+                    "object": "handle lag sets"
+                },
+                {
+                    "subject": "handle lag sets",
+                    "predicate": "ASSOCIATION",
+                    "object": "lag sets"
+                },
+                {
+                    "subject": "lag sets",
+                    "predicate": "HAS_ATTRIBUTE",
+                    "object": "maximum size of 262,144 values"
+                }
+            ]
+        }
     },
     {
         "id": 21826,
         "text": "As an NSF member of the team, I want to have a place where I can access all the related reports and documentation, so that I can refer to it easily now and in the future.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "NSF member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "access all the related reports and documentation",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "refer to it easily",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "reports",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "documentation",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "NSF member",
+                    "predicate": "PERFORMS",
+                    "object": "access all the related reports and documentation"
+                },
+                {
+                    "subject": "NSF member",
+                    "predicate": "PERFORMS",
+                    "object": "refer to it easily"
+                },
+                {
+                    "subject": "access all the related reports and documentation",
+                    "predicate": "PRECEDES",
+                    "object": "refer to it easily"
+                },
+                {
+                    "subject": "access all the related reports and documentation",
+                    "predicate": "ASSOCIATION",
+                    "object": "reports"
+                },
+                {
+                    "subject": "access all the related reports and documentation",
+                    "predicate": "ASSOCIATION",
+                    "object": "documentation"
+                }
+            ]
+        }
     },
     {
         "id": 21827,
         "text": "For each shot the product shall examine the defensive grid of the defensive player to determine whether the shot was a hit or miss.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "product",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "examine the defensive grid",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "determine whether the shot was a hit or miss",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "shot",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "defensive grid",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "defensive player",
+                    "label": "ACTOR"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "product",
+                    "predicate": "CONTAINS",
+                    "object": "examine the defensive grid"
+                },
+                {
+                    "subject": "product",
+                    "predicate": "CONTAINS",
+                    "object": "determine whether the shot was a hit or miss"
+                },
+                {
+                    "subject": "examine the defensive grid",
+                    "predicate": "PRECEDES",
+                    "object": "determine whether the shot was a hit or miss"
+                },
+                {
+                    "subject": "examine the defensive grid",
+                    "predicate": "ASSOCIATION",
+                    "object": "defensive grid"
+                },
+                {
+                    "subject": "defensive grid",
+                    "predicate": "ASSOCIATION",
+                    "object": "defensive player"
+                },
+                {
+                    "subject": "determine whether the shot was a hit or miss",
+                    "predicate": "ASSOCIATION",
+                    "object": "shot"
+                }
+            ]
+        }
     },
     {
         "id": 21828,
         "text": "As a camp administrator, I want to be able to modify tasks/events I scheduled in case there is a change, so that I can always keep the schedule up to date.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "camp administrator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "modify tasks/events",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "scheduled",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "tasks",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "events",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "schedule",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "camp administrator",
+                    "predicate": "PERFORMS",
+                    "object": "modify tasks/events"
+                },
+                {
+                    "subject": "modify tasks/events",
+                    "predicate": "ASSOCIATION",
+                    "object": "tasks"
+                },
+                {
+                    "subject": "modify tasks/events",
+                    "predicate": "ASSOCIATION",
+                    "object": "events"
+                },
+                {
+                    "subject": "tasks",
+                    "predicate": "HAS_ATTRIBUTE",
+                    "object": "scheduled"
+                },
+                {
+                    "subject": "events",
+                    "predicate": "HAS_ATTRIBUTE",
+                    "object": "scheduled"
+                },
+                {
+                    "subject": "modify tasks/events",
+                    "predicate": "ASSOCIATION",
+                    "object": "schedule"
+                },
+                {
+                    "subject": "schedule",
+                    "predicate": "CONTAINS",
+                    "object": "tasks"
+                },
+                {
+                    "subject": "schedule",
+                    "predicate": "CONTAINS",
+                    "object": "events"
+                }
+            ]
+        }
     },
     {
         "id": 21829,
         "text": "As an admin, I want to see a summary of articles, so that I reuse them.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "admin",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "see a summary of articles",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "reuse articles",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "articles",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "summary",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "admin",
+                    "predicate": "PERFORMS",
+                    "object": "see a summary of articles"
+                },
+                {
+                    "subject": "admin",
+                    "predicate": "PERFORMS",
+                    "object": "reuse articles"
+                },
+                {
+                    "subject": "see a summary of articles",
+                    "predicate": "PRECEDES",
+                    "object": "reuse articles"
+                },
+                {
+                    "subject": "see a summary of articles",
+                    "predicate": "ASSOCIATION",
+                    "object": "summary"
+                },
+                {
+                    "subject": "summary",
+                    "predicate": "ASSOCIATION",
+                    "object": "articles"
+                },
+                {
+                    "subject": "reuse articles",
+                    "predicate": "ASSOCIATION",
+                    "object": "articles"
+                }
+            ]
+        }
     },
     {
         "id": 21830,
         "text": "The DUAP System shall cache data only if the data record associates the data with its source, a georeferenced location, and a timestamp.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "DUAP System",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "cache data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "data record",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "source",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "georeferenced location",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "timestamp",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "DUAP System",
+                    "predicate": "CONTAINS",
+                    "object": "cache data"
+                },
+                {
+                    "subject": "cache data",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                },
+                {
+                    "subject": "data record",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                },
+                {
+                    "subject": "data record",
+                    "predicate": "ASSOCIATION",
+                    "object": "source"
+                },
+                {
+                    "subject": "data record",
+                    "predicate": "ASSOCIATION",
+                    "object": "georeferenced location"
+                },
+                {
+                    "subject": "data record",
+                    "predicate": "ASSOCIATION",
+                    "object": "timestamp"
+                }
+            ]
+        }
     },
     {
         "id": 21831,
         "text": "As a user, I want to remove a single property of a dataset instance without knowing all other properties.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "remove a single property of a dataset instance",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "property",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "dataset instance",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "remove a single property of a dataset instance"
+                },
+                {
+                    "subject": "remove a single property of a dataset instance",
+                    "predicate": "ASSOCIATION",
+                    "object": "property"
+                },
+                {
+                    "subject": "remove a single property of a dataset instance",
+                    "predicate": "ASSOCIATION",
+                    "object": "dataset instance"
+                },
+                {
+                    "subject": "dataset instance",
+                    "predicate": "CONTAINS",
+                    "object": "property"
+                }
+            ]
+        }
     },
     {
         "id": 21832,
         "text": "As an Extension Administrator or Staff Content Manager, I want to get periodic IR reminders, including when something needs attention (including next ingestion/approval steps), or something that might need to move from a current knowledge collection to Historical.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Extension Administrator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "Staff Content Manager",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "get periodic IR reminders",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "move items to Historical",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "IR reminders",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "ingestion/approval steps",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "current knowledge collection",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "Historical",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Extension Administrator",
+                    "predicate": "PERFORMS",
+                    "object": "get periodic IR reminders"
+                },
+                {
+                    "subject": "Staff Content Manager",
+                    "predicate": "PERFORMS",
+                    "object": "get periodic IR reminders"
+                },
+                {
+                    "subject": "Extension Administrator",
+                    "predicate": "PERFORMS",
+                    "object": "move items to Historical"
+                },
+                {
+                    "subject": "Staff Content Manager",
+                    "predicate": "PERFORMS",
+                    "object": "move items to Historical"
+                },
+                {
+                    "subject": "get periodic IR reminders",
+                    "predicate": "ASSOCIATION",
+                    "object": "IR reminders"
+                },
+                {
+                    "subject": "IR reminders",
+                    "predicate": "ASSOCIATION",
+                    "object": "ingestion/approval steps"
+                },
+                {
+                    "subject": "move items to Historical",
+                    "predicate": "ASSOCIATION",
+                    "object": "current knowledge collection"
+                },
+                {
+                    "subject": "move items to Historical",
+                    "predicate": "ASSOCIATION",
+                    "object": "Historical"
+                },
+                {
+                    "subject": "current knowledge collection",
+                    "predicate": "PRECEDES",
+                    "object": "Historical"
+                }
+            ]
+        }
     },
     {
         "id": 21833,
         "text": "The DUAP Input Services shall be able to collect weather data from Michigan Department of Natural Resources (MDNR) weather information systems using the MDNR interface.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "DUAP Input Services",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "collect weather data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "weather data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "Michigan Department of Natural Resources (MDNR) weather information systems",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "MDNR interface",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "DUAP Input Services",
+                    "predicate": "CONTAINS",
+                    "object": "collect weather data"
+                },
+                {
+                    "subject": "collect weather data",
+                    "predicate": "ASSOCIATION",
+                    "object": "weather data"
+                },
+                {
+                    "subject": "collect weather data",
+                    "predicate": "ASSOCIATION",
+                    "object": "MDNR interface"
+                },
+                {
+                    "subject": "MDNR interface",
+                    "predicate": "ASSOCIATION",
+                    "object": "Michigan Department of Natural Resources (MDNR) weather information systems"
+                }
+            ]
+        }
     },
     {
         "id": 21834,
         "text": "As a Consumer, I want to see how active the site is, so that I can decide if I should get involved.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Consumer",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "see how active the site is",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "decide if I should get involved",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "site",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "active",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Consumer",
+                    "predicate": "PERFORMS",
+                    "object": "see how active the site is"
+                },
+                {
+                    "subject": "Consumer",
+                    "predicate": "PERFORMS",
+                    "object": "decide if I should get involved"
+                },
+                {
+                    "subject": "see how active the site is",
+                    "predicate": "PRECEDES",
+                    "object": "decide if I should get involved"
+                },
+                {
+                    "subject": "see how active the site is",
+                    "predicate": "ASSOCIATION",
+                    "object": "site"
+                },
+                {
+                    "subject": "site",
+                    "predicate": "HAS_ATTRIBUTE",
+                    "object": "active"
+                }
+            ]
+        }
     },
     {
         "id": 21835,
         "text": "As a user, I want to assign bespoke information to a file dependent on its type.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "assign bespoke information to a file",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "bespoke information",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "file",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "type",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "assign bespoke information to a file"
+                },
+                {
+                    "subject": "assign bespoke information to a file",
+                    "predicate": "ASSOCIATION",
+                    "object": "bespoke information"
+                },
+                {
+                    "subject": "assign bespoke information to a file",
+                    "predicate": "ASSOCIATION",
+                    "object": "file"
+                },
+                {
+                    "subject": "file",
+                    "predicate": "HAS_ATTRIBUTE",
+                    "object": "type"
+                },
+                {
+                    "subject": "bespoke information",
+                    "predicate": "ASSOCIATION",
+                    "object": "type"
+                }
+            ]
+        }
     },
     {
         "id": 21836,
         "text": "Operations Activities – the system shall continue operations, although not necessarily at full capacity, on all unaffected resources during partial shutdowns for maintenance, repair and/or upgrade.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "continue operations",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "unaffected resources",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "partial shutdowns",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "maintenance",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "repair",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "upgrade",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "continue operations"
+                },
+                {
+                    "subject": "continue operations",
+                    "predicate": "ASSOCIATION",
+                    "object": "unaffected resources"
+                },
+                {
+                    "subject": "continue operations",
+                    "predicate": "ASSOCIATION",
+                    "object": "partial shutdowns"
+                },
+                {
+                    "subject": "partial shutdowns",
+                    "predicate": "ASSOCIATION",
+                    "object": "maintenance"
+                },
+                {
+                    "subject": "partial shutdowns",
+                    "predicate": "ASSOCIATION",
+                    "object": "repair"
+                },
+                {
+                    "subject": "partial shutdowns",
+                    "predicate": "ASSOCIATION",
+                    "object": "upgrade"
+                }
+            ]
+        }
     },
     {
         "id": 21837,
         "text": "The system shall provide a comprehensive web interface to be used to track buses on their routes.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "provide a comprehensive web interface",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "track buses on their routes",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "web interface",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "buses",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "routes",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "provide a comprehensive web interface"
+                },
+                {
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "track buses on their routes"
+                },
+                {
+                    "subject": "provide a comprehensive web interface",
+                    "predicate": "PRECEDES",
+                    "object": "track buses on their routes"
+                },
+                {
+                    "subject": "provide a comprehensive web interface",
+                    "predicate": "ASSOCIATION",
+                    "object": "web interface"
+                },
+                {
+                    "subject": "track buses on their routes",
+                    "predicate": "ASSOCIATION",
+                    "object": "buses"
+                },
+                {
+                    "subject": "track buses on their routes",
+                    "predicate": "ASSOCIATION",
+                    "object": "routes"
+                },
+                {
+                    "subject": "buses",
+                    "predicate": "ASSOCIATION",
+                    "object": "routes"
+                }
+            ]
+        }
     },
     {
         "id": 21838,
         "text": "As an OlderPerson, I want to use ALFRED to see who is standing at my door and open the door.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "OlderPerson",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "ALFRED",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "see who is standing at my door",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "open the door",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "door",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "OlderPerson",
+                    "predicate": "PERFORMS",
+                    "object": "see who is standing at my door"
+                },
+                {
+                    "subject": "OlderPerson",
+                    "predicate": "PERFORMS",
+                    "object": "open the door"
+                },
+                {
+                    "subject": "ALFRED",
+                    "predicate": "CONTAINS",
+                    "object": "see who is standing at my door"
+                },
+                {
+                    "subject": "ALFRED",
+                    "predicate": "CONTAINS",
+                    "object": "open the door"
+                },
+                {
+                    "subject": "see who is standing at my door",
+                    "predicate": "ASSOCIATION",
+                    "object": "door"
+                },
+                {
+                    "subject": "open the door",
+                    "predicate": "ASSOCIATION",
+                    "object": "door"
+                }
+            ]
+        }
     },
     {
         "id": 21839,
         "text": "The smart contract issues the block member in which the transaction was mined in.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "smart contract",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "issues the block member",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "block member",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "transaction",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "mined",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "smart contract",
+                    "predicate": "CONTAINS",
+                    "object": "issues the block member"
+                },
+                {
+                    "subject": "issues the block member",
+                    "predicate": "ASSOCIATION",
+                    "object": "block member"
+                },
+                {
+                    "subject": "block member",
+                    "predicate": "ASSOCIATION",
+                    "object": "transaction"
+                },
+                {
+                    "subject": "transaction",
+                    "predicate": "HAS_ATTRIBUTE",
+                    "object": "mined"
+                }
+            ]
+        }
     },
     {
         "id": 21840,
         "text": "As a administrator, I want to create and maintain venues, so that I can provide location details to help users find what they're looking for.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "administrator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "create and maintain venues",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "provide location details",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "venues",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "location details",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "users",
+                    "label": "ACTOR"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "administrator",
+                    "predicate": "PERFORMS",
+                    "object": "create and maintain venues"
+                },
+                {
+                    "subject": "administrator",
+                    "predicate": "PERFORMS",
+                    "object": "provide location details"
+                },
+                {
+                    "subject": "create and maintain venues",
+                    "predicate": "ASSOCIATION",
+                    "object": "venues"
+                },
+                {
+                    "subject": "provide location details",
+                    "predicate": "ASSOCIATION",
+                    "object": "location details"
+                },
+                {
+                    "subject": "venues",
+                    "predicate": "HAS_ATTRIBUTE",
+                    "object": "location details"
+                },
+                {
+                    "subject": "provide location details",
+                    "predicate": "ASSOCIATION",
+                    "object": "users"
+                },
+                {
+                    "subject": "create and maintain venues",
+                    "predicate": "PRECEDES",
+                    "object": "provide location details"
+                }
+            ]
+        }
     }
 ]
