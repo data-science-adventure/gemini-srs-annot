@@ -4,3 +4,6 @@ prompts
 srs-test.jsonl
 gemini3-cot.jsonl
 prompt.md
+entities_extracted
+target
+source/
