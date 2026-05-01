@@ -3,3 +3,4 @@ prompts
 .env
 srs-test.jsonl
 gemini3-cot.jsonl
+prompt.md
