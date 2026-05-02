@@ -2,37 +2,376 @@
     {
         "id": 21741,
         "text": "As a moderator, I want to create an account for the application by entering my name, email address, a password and a username, so that I can start using the application.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "moderator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "application",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "create an account",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "start using the application",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "name",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "email address",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "password",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "username",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "application",
+                    "predicate": "CONTAINS",
+                    "object": "create an account"
+                },
+                {
+                    "subject": "application",
+                    "predicate": "CONTAINS",
+                    "object": "start using the application"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "PERFORMS",
+                    "object": "create an account"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "PERFORMS",
+                    "object": "start using the application"
+                },
+                {
+                    "subject": "create an account",
+                    "predicate": "INCLUDE",
+                    "object": "start using the application"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "OWNS",
+                    "object": "name"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "OWNS",
+                    "object": "email address"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "OWNS",
+                    "object": "password"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "OWNS",
+                    "object": "username"
+                }
+            ]
+        }
     },
     {
         "id": 21742,
         "text": "The system comprises of different modules that operate hand-in-hand to accomplish the desired goal.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "modules",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "operate hand-in-hand",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "accomplish the desired goal",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "operate hand-in-hand"
+                },
+                {
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "accomplish the desired goal"
+                },
+                {
+                    "subject": "operate hand-in-hand",
+                    "predicate": "INCLUDE",
+                    "object": "accomplish the desired goal"
+                },
+                {
+                    "subject": "modules",
+                    "predicate": "ASSOCIATION",
+                    "object": "modules"
+                }
+            ]
+        }
     },
     {
         "id": 21743,
         "text": "As a MedicalCaregiver, I want to have ALFRED to be able to determine the user's breathing frequency.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "MedicalCaregiver",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "ALFRED",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "determine the user's breathing frequency",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "MedicalCaregiver",
+                    "predicate": "PERFORMS",
+                    "object": "determine the user's breathing frequency"
+                },
+                {
+                    "subject": "ALFRED",
+                    "predicate": "CONTAINS",
+                    "object": "determine the user's breathing frequency"
+                }
+            ]
+        }
     },
     {
         "id": 21744,
         "text": "It must allow a user to logout.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "user",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "logout",
+                    "label": "USE_CASE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "logout"
+                }
+            ]
+        }
     },
     {
         "id": 21745,
         "text": "A VCD system MUST provide functionality to collect and process context specific data for evidence that has to be provided manually or semi-automatically by the issuing body, by the economic operator or any trusted third party.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "VCD system",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "issuing body",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "economic operator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "trusted third party",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "collect and process context specific data for evidence",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "evidence",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "VCD system",
+                    "predicate": "CONTAINS",
+                    "object": "collect and process context specific data for evidence"
+                },
+                {
+                    "subject": "issuing body",
+                    "predicate": "PERFORMS",
+                    "object": "collect and process context specific data for evidence"
+                },
+                {
+                    "subject": "economic operator",
+                    "predicate": "PERFORMS",
+                    "object": "collect and process context specific data for evidence"
+                },
+                {
+                    "subject": "trusted third party",
+                    "predicate": "PERFORMS",
+                    "object": "collect and process context specific data for evidence"
+                },
+                {
+                    "subject": "collect and process context specific data for evidence",
+                    "predicate": "ASSOCIATION",
+                    "object": "evidence"
+                }
+            ]
+        }
     },
     {
         "id": 21746,
         "text": "As a library staff member, I want to receive a quick response and a reasonable resolution to tech support issues, so that service can proceed with minimal interruption.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "library staff member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "receive a quick response",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "receive a reasonable resolution to tech support issues",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "tech support issues",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "library staff member",
+                    "predicate": "PERFORMS",
+                    "object": "receive a quick response"
+                },
+                {
+                    "subject": "library staff member",
+                    "predicate": "PERFORMS",
+                    "object": "receive a reasonable resolution to tech support issues"
+                },
+                {
+                    "subject": "receive a quick response",
+                    "predicate": "ASSOCIATION",
+                    "object": "tech support issues"
+                },
+                {
+                    "subject": "receive a reasonable resolution to tech support issues",
+                    "predicate": "ASSOCIATION",
+                    "object": "tech support issues"
+                }
+            ]
+        }
     },
     {
         "id": 21747,
         "text": "As a Plan Review Staff member, I want to Track the Completion of Required Plan Reviews, so that I can ensure all plan review tasks are completed, results have been sent to the Applicant and any downstream steps are initiated such has a final review or payment for permit issuance.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "Plan Review Staff member",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "Applicant",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "Track the Completion of Required Plan Reviews",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "ensure all plan review tasks are completed",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "results have been sent to the Applicant",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "downstream steps are initiated",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "final review",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "payment for permit issuance",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "plan review tasks",
+                    "label": "CLASS"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "Plan Review Staff member",
+                    "predicate": "PERFORMS",
+                    "object": "Track the Completion of Required Plan Reviews"
+                },
+                {
+                    "subject": "Track the Completion of Required Plan Reviews",
+                    "predicate": "INCLUDE",
+                    "object": "ensure all plan review tasks are completed"
+                },
+                {
+                    "subject": "Track the Completion of Required Plan Reviews",
+                    "predicate": "INCLUDE",
+                    "object": "results have been sent to the Applicant"
+                },
+                {
+                    "subject": "Track the Completion of Required Plan Reviews",
+                    "predicate": "INCLUDE",
+                    "object": "downstream steps are initiated"
+                },
+                {
+                    "subject": "downstream steps are initiated",
+                    "predicate": "IS_A",
+                    "object": "final review"
+                },
+                {
+                    "subject": "downstream steps are initiated",
+                    "predicate": "IS_A",
+                    "object": "payment for permit issuance"
+                },
+                {
+                    "subject": "ensure all plan review tasks are completed",
+                    "predicate": "ASSOCIATION",
+                    "object": "plan review tasks"
+                }
+            ]
+        }
     },
     {
         "id": 21748,
