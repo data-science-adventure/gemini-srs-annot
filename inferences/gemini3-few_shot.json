@@ -2,7 +2,98 @@
     {
         "id": 21741,
         "text": "As a moderator, I want to create an account for the application by entering my name, email address, a password and a username, so that I can start using the application.",
-        "inferences": {}
+        "inferences": {
+            "entities": [
+                {
+                    "text": "moderator",
+                    "label": "ACTOR"
+                },
+                {
+                    "text": "application",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "create an account",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "start using the application",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "account",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "name",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "email address",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "password",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "username",
+                    "label": "STRING_ATTRIBUTE"
+                }
+            ],
+            "relations": [
+                {
+                    "subject": "moderator",
+                    "predicate": "PERFORMS",
+                    "object": "create an account"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "PERFORMS",
+                    "object": "start using the application"
+                },
+                {
+                    "subject": "application",
+                    "predicate": "CONTAINS",
+                    "object": "create an account"
+                },
+                {
+                    "subject": "application",
+                    "predicate": "CONTAINS",
+                    "object": "start using the application"
+                },
+                {
+                    "subject": "create an account",
+                    "predicate": "INCLUDE",
+                    "object": "start using the application"
+                },
+                {
+                    "subject": "account",
+                    "predicate": "OWNS",
+                    "object": "name"
+                },
+                {
+                    "subject": "account",
+                    "predicate": "OWNS",
+                    "object": "email address"
+                },
+                {
+                    "subject": "account",
+                    "predicate": "OWNS",
+                    "object": "password"
+                },
+                {
+                    "subject": "account",
+                    "predicate": "OWNS",
+                    "object": "username"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "ONE_TO_ONE_ASSOCIATION",
+                    "object": "account"
+                }
+            ]
+        }
     },
     {
         "id": 21742,

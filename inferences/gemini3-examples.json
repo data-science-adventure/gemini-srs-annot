@@ -17,8 +17,8 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "account",
-                    "label": "CLASS"
+                    "text": "start using the application",
+                    "label": "USE_CASE"
                 },
                 {
                     "text": "name",
@@ -39,39 +39,49 @@
             ],
             "relations": [
                 {
-                    "subject": "moderator",
-                    "predicate": "PERFORMS",
-                    "object": "create an account"
-                },
-                {
                     "subject": "application",
                     "predicate": "CONTAINS",
                     "object": "create an account"
                 },
                 {
-                    "subject": "account",
+                    "subject": "application",
+                    "predicate": "CONTAINS",
+                    "object": "start using the application"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "PERFORMS",
+                    "object": "create an account"
+                },
+                {
+                    "subject": "moderator",
+                    "predicate": "PERFORMS",
+                    "object": "start using the application"
+                },
+                {
+                    "subject": "create an account",
+                    "predicate": "INCLUDE",
+                    "object": "start using the application"
+                },
+                {
+                    "subject": "moderator",
                     "predicate": "OWNS",
                     "object": "name"
                 },
                 {
-                    "subject": "account",
+                    "subject": "moderator",
                     "predicate": "OWNS",
                     "object": "email address"
                 },
                 {
-                    "subject": "account",
+                    "subject": "moderator",
                     "predicate": "OWNS",
                     "object": "password"
                 },
                 {
-                    "subject": "account",
+                    "subject": "moderator",
                     "predicate": "OWNS",
                     "object": "username"
-                },
-                {
-                    "subject": "moderator",
-                    "predicate": "ONE_TO_ONE_ASSOCIATION",
-                    "object": "account"
                 }
             ]
         }
@@ -82,11 +92,44 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "modules",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "operate hand-in-hand",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "accomplish the desired goal",
+                    "label": "USE_CASE"
                 }
             ],
-            "relations": []
+            "relations": [
+                {
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "operate hand-in-hand"
+                },
+                {
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "accomplish the desired goal"
+                },
+                {
+                    "subject": "operate hand-in-hand",
+                    "predicate": "INCLUDE",
+                    "object": "accomplish the desired goal"
+                },
+                {
+                    "subject": "modules",
+                    "predicate": "ASSOCIATION",
+                    "object": "modules"
+                }
+            ]
         }
     },
     {
@@ -109,13 +152,13 @@
             ],
             "relations": [
                 {
-                    "subject": "ALFRED",
-                    "predicate": "CONTAINS",
+                    "subject": "MedicalCaregiver",
+                    "predicate": "PERFORMS",
                     "object": "determine the user's breathing frequency"
                 },
                 {
-                    "subject": "MedicalCaregiver",
-                    "predicate": "PERFORMS",
+                    "subject": "ALFRED",
+                    "predicate": "CONTAINS",
                     "object": "determine the user's breathing frequency"
                 }
             ]
@@ -154,10 +197,6 @@
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
-                    "text": "collect and process context specific data for evidence",
-                    "label": "USE_CASE"
-                },
-                {
                     "text": "issuing body",
                     "label": "ACTOR"
                 },
@@ -168,6 +207,14 @@
                 {
                     "text": "trusted third party",
                     "label": "ACTOR"
+                },
+                {
+                    "text": "collect and process context specific data for evidence",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "evidence",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -190,6 +237,11 @@
                     "subject": "trusted third party",
                     "predicate": "PERFORMS",
                     "object": "collect and process context specific data for evidence"
+                },
+                {
+                    "subject": "collect and process context specific data for evidence",
+                    "predicate": "ASSOCIATION",
+                    "object": "evidence"
                 }
             ]
         }
@@ -204,15 +256,38 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "receive a quick response and a reasonable resolution to tech support issues",
+                    "text": "receive a quick response",
                     "label": "USE_CASE"
+                },
+                {
+                    "text": "receive a reasonable resolution to tech support issues",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "tech support issues",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
                 {
                     "subject": "library staff member",
                     "predicate": "PERFORMS",
-                    "object": "receive a quick response and a reasonable resolution to tech support issues"
+                    "object": "receive a quick response"
+                },
+                {
+                    "subject": "library staff member",
+                    "predicate": "PERFORMS",
+                    "object": "receive a reasonable resolution to tech support issues"
+                },
+                {
+                    "subject": "receive a quick response",
+                    "predicate": "ASSOCIATION",
+                    "object": "tech support issues"
+                },
+                {
+                    "subject": "receive a reasonable resolution to tech support issues",
+                    "predicate": "ASSOCIATION",
+                    "object": "tech support issues"
                 }
             ]
         }
@@ -227,12 +302,24 @@
                     "label": "ACTOR"
                 },
                 {
+                    "text": "Applicant",
+                    "label": "ACTOR"
+                },
+                {
                     "text": "Track the Completion of Required Plan Reviews",
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "Applicant",
-                    "label": "ACTOR"
+                    "text": "ensure all plan review tasks are completed",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "results have been sent to the Applicant",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "downstream steps are initiated",
+                    "label": "USE_CASE"
                 },
                 {
                     "text": "final review",
@@ -241,6 +328,10 @@
                 {
                     "text": "payment for permit issuance",
                     "label": "USE_CASE"
+                },
+                {
+                    "text": "plan review tasks",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -252,12 +343,32 @@
                 {
                     "subject": "Track the Completion of Required Plan Reviews",
                     "predicate": "INCLUDE",
-                    "object": "final review"
+                    "object": "ensure all plan review tasks are completed"
                 },
                 {
                     "subject": "Track the Completion of Required Plan Reviews",
                     "predicate": "INCLUDE",
+                    "object": "results have been sent to the Applicant"
+                },
+                {
+                    "subject": "Track the Completion of Required Plan Reviews",
+                    "predicate": "INCLUDE",
+                    "object": "downstream steps are initiated"
+                },
+                {
+                    "subject": "downstream steps are initiated",
+                    "predicate": "IS_A",
+                    "object": "final review"
+                },
+                {
+                    "subject": "downstream steps are initiated",
+                    "predicate": "IS_A",
                     "object": "payment for permit issuance"
+                },
+                {
+                    "subject": "ensure all plan review tasks are completed",
+                    "predicate": "ASSOCIATION",
+                    "object": "plan review tasks"
                 }
             ]
         }
@@ -268,19 +379,28 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
                     "text": "simulate road rules diagrams",
                     "label": "USE_CASE"
+                },
+                {
+                    "text": "road rules diagrams",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "simulate road rules diagrams"
+                },
+                {
+                    "subject": "simulate road rules diagrams",
+                    "predicate": "ASSOCIATION",
+                    "object": "road rules diagrams"
                 }
             ]
         }
@@ -295,17 +415,26 @@
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
-                    "text": "view access capability",
-                    "label": "USE_CASE"
+                    "text": "application",
+                    "label": "SYSTEM_BOUNDARY"
                 },
                 {
                     "text": "authorized users",
                     "label": "ACTOR"
+                },
+                {
+                    "text": "view access capability",
+                    "label": "USE_CASE"
                 }
             ],
             "relations": [
                 {
                     "subject": "Disputes System",
+                    "predicate": "CONTAINS",
+                    "object": "view access capability"
+                },
+                {
+                    "subject": "application",
                     "predicate": "CONTAINS",
                     "object": "view access capability"
                 },
@@ -349,6 +478,11 @@
                     "subject": "profile",
                     "predicate": "OWNS",
                     "object": "email address"
+                },
+                {
+                    "subject": "site member",
+                    "predicate": "ONE_TO_ONE_ASSOCIATION",
+                    "object": "profile"
                 }
             ]
         }
@@ -367,11 +501,7 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "registry",
-                    "label": "SYSTEM_BOUNDARY"
-                },
-                {
-                    "text": "caches a copy of that data",
+                    "text": "registry caches a copy of that data",
                     "label": "USE_CASE"
                 },
                 {
@@ -380,7 +510,11 @@
                 },
                 {
                     "text": "resource data",
-                    "label": "BLOB_ATTRIBUTE"
+                    "label": "CLASS"
+                },
+                {
+                    "text": "servers",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -390,18 +524,18 @@
                     "object": "publish a data package"
                 },
                 {
-                    "subject": "registry",
-                    "predicate": "CONTAINS",
-                    "object": "caches a copy of that data"
-                },
-                {
                     "subject": "publish a data package",
                     "predicate": "INCLUDE",
-                    "object": "caches a copy of that data"
+                    "object": "registry caches a copy of that data"
                 },
                 {
                     "subject": "data package",
-                    "predicate": "OWNS",
+                    "predicate": "ONE_TO_MANY_ASSOCIATION",
+                    "object": "resource data"
+                },
+                {
+                    "subject": "servers",
+                    "predicate": "ONE_TO_MANY_ASSOCIATION",
                     "object": "resource data"
                 }
             ]
@@ -413,7 +547,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The System",
+                    "text": "System",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -433,22 +567,22 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "groups",
+                    "text": "users",
                     "label": "CLASS"
                 },
                 {
-                    "text": "users",
+                    "text": "groups",
                     "label": "CLASS"
                 }
             ],
             "relations": [
                 {
-                    "subject": "The System",
+                    "subject": "System",
                     "predicate": "CONTAINS",
                     "object": "set up user profiles"
                 },
                 {
-                    "subject": "The System",
+                    "subject": "System",
                     "predicate": "CONTAINS",
                     "object": "allocate users to groups"
                 },
@@ -493,7 +627,7 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "leaving a record of my revisions",
+                    "text": "leave a record of revisions",
                     "label": "USE_CASE"
                 },
                 {
@@ -505,7 +639,7 @@
                     "label": "BLOB_ATTRIBUTE"
                 },
                 {
-                    "text": "revisions",
+                    "text": "record of revisions",
                     "label": "CLASS"
                 },
                 {
@@ -525,24 +659,29 @@
                     "object": "correct errors in uploaded documents"
                 },
                 {
+                    "subject": "library staff member",
+                    "predicate": "PERFORMS",
+                    "object": "leave a record of revisions"
+                },
+                {
                     "subject": "correct errors in uploaded metadata",
                     "predicate": "INCLUDE",
-                    "object": "leaving a record of my revisions"
+                    "object": "leave a record of revisions"
                 },
                 {
                     "subject": "correct errors in uploaded documents",
                     "predicate": "INCLUDE",
-                    "object": "leaving a record of my revisions"
+                    "object": "leave a record of revisions"
                 },
                 {
-                    "subject": "revisions",
+                    "subject": "record of revisions",
                     "predicate": "OWNS",
                     "object": "reasons"
                 },
                 {
-                    "subject": "revisions",
+                    "subject": "metadata",
                     "predicate": "ASSOCIATION",
-                    "object": "metadata"
+                    "object": "documents"
                 }
             ]
         }
@@ -621,7 +760,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -629,7 +768,7 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "define negotiation rules for the organization",
+                    "text": "define negotiation rules",
                     "label": "USE_CASE"
                 },
                 {
@@ -643,18 +782,23 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
-                    "object": "define negotiation rules for the organization"
+                    "object": "define negotiation rules"
                 },
                 {
                     "subject": "administrators",
                     "predicate": "PERFORMS",
-                    "object": "define negotiation rules for the organization"
+                    "object": "define negotiation rules"
                 },
                 {
                     "subject": "organization",
                     "predicate": "ONE_TO_MANY_ASSOCIATION",
+                    "object": "negotiation rules"
+                },
+                {
+                    "subject": "define negotiation rules",
+                    "predicate": "ASSOCIATION",
                     "object": "negotiation rules"
                 }
             ]
@@ -666,7 +810,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -676,7 +820,7 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "close the session"
                 }
@@ -693,20 +837,12 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "allowed under the access permissions set on the object after the embargo data is reached",
-                    "label": "USE_CASE"
-                },
-                {
                     "text": "item",
                     "label": "CLASS"
                 },
                 {
-                    "text": "object",
-                    "label": "CLASS"
-                },
-                {
                     "text": "access permissions",
-                    "label": "STRING_ATTRIBUTE"
+                    "label": "CLASS"
                 },
                 {
                     "text": "embargo data",
@@ -716,23 +852,18 @@
             "relations": [
                 {
                     "subject": "collection curator",
-                    "predicate": "PERFORMS",
-                    "object": "allowed under the access permissions set on the object after the embargo data is reached"
+                    "predicate": "ASSOCIATION",
+                    "object": "item"
                 },
                 {
                     "subject": "item",
-                    "predicate": "IS_A",
-                    "object": "object"
-                },
-                {
-                    "subject": "object",
-                    "predicate": "OWNS",
-                    "object": "access permissions"
-                },
-                {
-                    "subject": "object",
                     "predicate": "OWNS",
                     "object": "embargo data"
+                },
+                {
+                    "subject": "item",
+                    "predicate": "ONE_TO_MANY_ASSOCIATION",
+                    "object": "access permissions"
                 }
             ]
         }
@@ -743,7 +874,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -751,28 +882,28 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "enter the search text on the screen",
+                    "text": "enter the search text",
                     "label": "USE_CASE"
-                },
-                {
-                    "text": "screen",
-                    "label": "CLASS"
                 },
                 {
                     "text": "search text",
                     "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "screen",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
-                    "object": "enter the search text on the screen"
+                    "object": "enter the search text"
                 },
                 {
                     "subject": "user",
                     "predicate": "PERFORMS",
-                    "object": "enter the search text on the screen"
+                    "object": "enter the search text"
                 },
                 {
                     "subject": "screen",
@@ -806,6 +937,10 @@
                 {
                     "text": "FundingAgencyCode",
                     "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "FABS",
+                    "label": "SYSTEM_BOUNDARY"
                 }
             ],
             "relations": [
@@ -815,9 +950,19 @@
                     "object": "update the FABS sample file"
                 },
                 {
+                    "subject": "Developer",
+                    "predicate": "PERFORMS",
+                    "object": "remove FundingAgencyCode"
+                },
+                {
                     "subject": "update the FABS sample file",
                     "predicate": "INCLUDE",
                     "object": "remove FundingAgencyCode"
+                },
+                {
+                    "subject": "FABS",
+                    "predicate": "CONTAINS",
+                    "object": "update the FABS sample file"
                 },
                 {
                     "subject": "FABS sample file",
@@ -837,15 +982,42 @@
                     "label": "CLASS"
                 },
                 {
+                    "text": "video hosting sites",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "video linking sites",
+                    "label": "CLASS"
+                },
+                {
                     "text": "updated via the internet",
-                    "label": "OPERATION"
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "internet",
+                    "label": "SYSTEM_BOUNDARY"
                 }
             ],
             "relations": [
                 {
                     "subject": "Database of video hosting and video linking sites",
-                    "predicate": "OWNS",
+                    "predicate": "CONTAINS",
+                    "object": "video hosting sites"
+                },
+                {
+                    "subject": "Database of video hosting and video linking sites",
+                    "predicate": "CONTAINS",
+                    "object": "video linking sites"
+                },
+                {
+                    "subject": "internet",
+                    "predicate": "CONTAINS",
                     "object": "updated via the internet"
+                },
+                {
+                    "subject": "updated via the internet",
+                    "predicate": "ASSOCIATION",
+                    "object": "Database of video hosting and video linking sites"
                 }
             ]
         }
@@ -864,7 +1036,15 @@
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
-                    "text": "create, update and delete any records",
+                    "text": "create any records",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "update any records",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "delete any records",
                     "label": "USE_CASE"
                 },
                 {
@@ -874,17 +1054,47 @@
             ],
             "relations": [
                 {
-                    "subject": "repository",
-                    "predicate": "CONTAINS",
-                    "object": "create, update and delete any records"
+                    "subject": "Repository Manager",
+                    "predicate": "PERFORMS",
+                    "object": "create any records"
                 },
                 {
                     "subject": "Repository Manager",
                     "predicate": "PERFORMS",
-                    "object": "create, update and delete any records"
+                    "object": "update any records"
                 },
                 {
-                    "subject": "create, update and delete any records",
+                    "subject": "Repository Manager",
+                    "predicate": "PERFORMS",
+                    "object": "delete any records"
+                },
+                {
+                    "subject": "repository",
+                    "predicate": "CONTAINS",
+                    "object": "create any records"
+                },
+                {
+                    "subject": "repository",
+                    "predicate": "CONTAINS",
+                    "object": "update any records"
+                },
+                {
+                    "subject": "repository",
+                    "predicate": "CONTAINS",
+                    "object": "delete any records"
+                },
+                {
+                    "subject": "create any records",
+                    "predicate": "ASSOCIATION",
+                    "object": "records"
+                },
+                {
+                    "subject": "update any records",
+                    "predicate": "ASSOCIATION",
+                    "object": "records"
+                },
+                {
+                    "subject": "delete any records",
                     "predicate": "ASSOCIATION",
                     "object": "records"
                 }
@@ -930,8 +1140,8 @@
                 },
                 {
                     "subject": "annotate news video segments",
-                    "predicate": "ASSOCIATION",
-                    "object": "news video segments"
+                    "predicate": "INCLUDE",
+                    "object": "extract a topic for each segment"
                 },
                 {
                     "subject": "news video segments",
@@ -959,6 +1169,14 @@
                     "label": "USE_CASE"
                 },
                 {
+                    "text": "R",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "Python",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
                     "text": "analysis",
                     "label": "CLASS"
                 }
@@ -972,6 +1190,16 @@
                 {
                     "subject": "Developer",
                     "predicate": "PERFORMS",
+                    "object": "operationalize that analysis in Python"
+                },
+                {
+                    "subject": "R",
+                    "predicate": "CONTAINS",
+                    "object": "do exploratory data analysis in R"
+                },
+                {
+                    "subject": "Python",
+                    "predicate": "CONTAINS",
                     "object": "operationalize that analysis in Python"
                 },
                 {
@@ -997,7 +1225,7 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "indicate the geo-coordinates for any resource",
+                    "text": "indicate the geo-coordinates",
                     "label": "USE_CASE"
                 },
                 {
@@ -1013,12 +1241,17 @@
                 {
                     "subject": "repository manager",
                     "predicate": "PERFORMS",
-                    "object": "indicate the geo-coordinates for any resource"
+                    "object": "indicate the geo-coordinates"
                 },
                 {
                     "subject": "resource",
                     "predicate": "OWNS",
                     "object": "geo-coordinates"
+                },
+                {
+                    "subject": "indicate the geo-coordinates",
+                    "predicate": "ASSOCIATION",
+                    "object": "resource"
                 }
             ]
         }
@@ -1030,7 +1263,7 @@
             "entities": [
                 {
                     "text": "Students",
-                    "label": "CLASS"
+                    "label": "ACTOR"
                 },
                 {
                     "text": "cohort",
@@ -1039,10 +1272,6 @@
                 {
                     "text": "Program of Study",
                     "label": "CLASS"
-                },
-                {
-                    "text": "eligible",
-                    "label": "BOOLEAN_ATTRIBUTE"
                 }
             ],
             "relations": [
@@ -1058,8 +1287,8 @@
                 },
                 {
                     "subject": "Students",
-                    "predicate": "OWNS",
-                    "object": "eligible"
+                    "predicate": "ASSOCIATION",
+                    "object": "Program of Study"
                 }
             ]
         }
@@ -1105,6 +1334,11 @@
                     "subject": "evidence",
                     "predicate": "OWNS",
                     "object": "structural data"
+                },
+                {
+                    "subject": "display structural data of evidence",
+                    "predicate": "ASSOCIATION",
+                    "object": "evidence"
                 }
             ]
         }
@@ -1115,7 +1349,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -1129,7 +1363,7 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "interpret the analysis results"
                 },
@@ -1155,11 +1389,11 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "creation of a chargeback request",
+                    "text": "provide a confirmation",
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "provide a confirmation",
+                    "text": "creation of a chargeback request",
                     "label": "USE_CASE"
                 },
                 {
@@ -1187,12 +1421,12 @@
                 {
                     "subject": "Disputes System",
                     "predicate": "CONTAINS",
-                    "object": "creation of a chargeback request"
+                    "object": "provide a confirmation"
                 },
                 {
                     "subject": "Disputes System",
                     "predicate": "CONTAINS",
-                    "object": "provide a confirmation"
+                    "object": "creation of a chargeback request"
                 },
                 {
                     "subject": "user",
@@ -1201,13 +1435,8 @@
                 },
                 {
                     "subject": "provide a confirmation",
-                    "predicate": "PRECEDES",
-                    "object": "user"
-                },
-                {
-                    "subject": "creation of a chargeback request",
-                    "predicate": "INCLUDE",
-                    "object": "provide a confirmation"
+                    "predicate": "EXTEND",
+                    "object": "creation of a chargeback request"
                 },
                 {
                     "subject": "confirmation",
@@ -1238,37 +1467,28 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
-                    "text": "display all the products that can be configured",
+                    "text": "display all the products",
                     "label": "USE_CASE"
                 },
                 {
                     "text": "products",
                     "label": "CLASS"
-                },
-                {
-                    "text": "configurable",
-                    "label": "BOOLEAN_ATTRIBUTE"
                 }
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
-                    "object": "display all the products that can be configured"
+                    "object": "display all the products"
                 },
                 {
-                    "subject": "display all the products that can be configured",
+                    "subject": "display all the products",
                     "predicate": "ASSOCIATION",
                     "object": "products"
-                },
-                {
-                    "subject": "products",
-                    "predicate": "OWNS",
-                    "object": "configurable"
                 }
             ]
         }
@@ -1283,38 +1503,24 @@
                     "label": "CLASS"
                 },
                 {
+                    "text": "intercepted",
+                    "label": "USE_CASE"
+                },
+                {
                     "text": "SMTP server",
                     "label": "SYSTEM_BOUNDARY"
-                },
-                {
-                    "text": "intercepted",
-                    "label": "OPERATION"
-                },
-                {
-                    "text": "dispatched",
-                    "label": "OPERATION"
                 }
             ],
             "relations": [
                 {
-                    "subject": "email",
-                    "predicate": "OWNS",
+                    "subject": "SMTP server",
+                    "predicate": "CONTAINS",
                     "object": "intercepted"
                 },
                 {
-                    "subject": "email",
-                    "predicate": "OWNS",
-                    "object": "dispatched"
-                },
-                {
                     "subject": "intercepted",
-                    "predicate": "PRECEDES",
-                    "object": "dispatched"
-                },
-                {
-                    "subject": "dispatched",
                     "predicate": "ASSOCIATION",
-                    "object": "SMTP server"
+                    "object": "email"
                 }
             ]
         }
@@ -1334,15 +1540,11 @@
                 },
                 {
                     "text": "user",
-                    "label": "CLASS"
+                    "label": "ACTOR"
                 },
                 {
                     "text": "member",
-                    "label": "CLASS"
-                },
-                {
-                    "text": "full control",
-                    "label": "BOOLEAN_ATTRIBUTE"
+                    "label": "ACTOR"
                 }
             ],
             "relations": [
@@ -1358,13 +1560,13 @@
                 },
                 {
                     "subject": "user",
-                    "predicate": "IS_A",
-                    "object": "member"
+                    "predicate": "GENERALIZATION",
+                    "object": "owner"
                 },
                 {
-                    "subject": "owner",
-                    "predicate": "OWNS",
-                    "object": "full control"
+                    "subject": "user",
+                    "predicate": "GENERALIZATION",
+                    "object": "member"
                 }
             ]
         }
@@ -1379,15 +1581,19 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "application",
-                    "label": "SYSTEM_BOUNDARY"
-                },
-                {
                     "text": "grammar of inputs",
                     "label": "STRING_ATTRIBUTE"
                 },
                 {
+                    "text": "application",
+                    "label": "CLASS"
+                },
+                {
                     "text": "file extension",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": ".grm",
                     "label": "STRING_ATTRIBUTE"
                 }
             ],
@@ -1430,6 +1636,10 @@
                 {
                     "text": "Broker application data",
                     "label": "CLASS"
+                },
+                {
+                    "text": "Broker",
+                    "label": "SYSTEM_BOUNDARY"
                 }
             ],
             "relations": [
@@ -1445,8 +1655,13 @@
                 },
                 {
                     "subject": "quickly access Broker application data",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "investigate issues"
+                },
+                {
+                    "subject": "Broker",
+                    "predicate": "CONTAINS",
+                    "object": "quickly access Broker application data"
                 },
                 {
                     "subject": "quickly access Broker application data",
@@ -1462,7 +1677,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -1470,7 +1685,11 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "create and load an image",
+                    "text": "create an image",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "load an image",
                     "label": "USE_CASE"
                 },
                 {
@@ -1480,17 +1699,32 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
-                    "object": "create and load an image"
+                    "object": "create an image"
+                },
+                {
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "load an image"
                 },
                 {
                     "subject": "user",
                     "predicate": "PERFORMS",
-                    "object": "create and load an image"
+                    "object": "create an image"
                 },
                 {
-                    "subject": "create and load an image",
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "load an image"
+                },
+                {
+                    "subject": "create an image",
+                    "predicate": "ASSOCIATION",
+                    "object": "image"
+                },
+                {
+                    "subject": "load an image",
                     "predicate": "ASSOCIATION",
                     "object": "image"
                 }
@@ -1521,10 +1755,6 @@
                 {
                     "text": "datapackage",
                     "label": "CLASS"
-                },
-                {
-                    "text": "results",
-                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -1545,23 +1775,18 @@
                 },
                 {
                     "subject": "preview a datapackage",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "check it works"
                 },
                 {
                     "subject": "preview a datapackage",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "share the results"
                 },
                 {
                     "subject": "preview a datapackage",
                     "predicate": "ASSOCIATION",
                     "object": "datapackage"
-                },
-                {
-                    "subject": "share the results",
-                    "predicate": "ASSOCIATION",
-                    "object": "results"
                 }
             ]
         }
@@ -1572,7 +1797,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -1590,19 +1815,19 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "display all the matching products"
                 },
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "search"
                 },
                 {
-                    "subject": "search",
-                    "predicate": "PRECEDES",
-                    "object": "display all the matching products"
+                    "subject": "display all the matching products",
+                    "predicate": "EXTEND",
+                    "object": "search"
                 },
                 {
                     "subject": "display all the matching products",
@@ -1622,7 +1847,11 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "include additional details in my profile page",
+                    "text": "profile page",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "include additional details",
                     "label": "USE_CASE"
                 },
                 {
@@ -1634,10 +1863,6 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "profile page",
-                    "label": "CLASS"
-                },
-                {
                     "text": "additional details",
                     "label": "STRING_ATTRIBUTE"
                 }
@@ -1646,7 +1871,7 @@
                 {
                     "subject": "Trainer",
                     "predicate": "PERFORMS",
-                    "object": "include additional details in my profile page"
+                    "object": "include additional details"
                 },
                 {
                     "subject": "Trainer",
@@ -1656,16 +1881,6 @@
                 {
                     "subject": "Trainer",
                     "predicate": "PERFORMS",
-                    "object": "decide if I am the right trainer"
-                },
-                {
-                    "subject": "include additional details in my profile page",
-                    "predicate": "PRECEDES",
-                    "object": "learn about me"
-                },
-                {
-                    "subject": "learn about me",
-                    "predicate": "PRECEDES",
                     "object": "decide if I am the right trainer"
                 },
                 {
@@ -1674,9 +1889,19 @@
                     "object": "additional details"
                 },
                 {
-                    "subject": "Trainer",
-                    "predicate": "ONE_TO_ONE_ASSOCIATION",
+                    "subject": "include additional details",
+                    "predicate": "ASSOCIATION",
                     "object": "profile page"
+                },
+                {
+                    "subject": "include additional details",
+                    "predicate": "INCLUDE",
+                    "object": "learn about me"
+                },
+                {
+                    "subject": "learn about me",
+                    "predicate": "INCLUDE",
+                    "object": "decide if I am the right trainer"
                 }
             ]
         }
@@ -1699,11 +1924,7 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "archive",
-                    "label": "CLASS"
-                },
-                {
-                    "text": "duration",
+                    "text": "archive duration",
                     "label": "STRING_ATTRIBUTE"
                 }
             ],
@@ -1720,13 +1941,8 @@
                 },
                 {
                     "subject": "know how long it will take to archive",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "plan further steps"
-                },
-                {
-                    "subject": "archive",
-                    "predicate": "OWNS",
-                    "object": "duration"
                 }
             ]
         }
@@ -1737,11 +1953,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "obtain data",
-                    "label": "USE_CASE"
-                },
-                {
-                    "text": "determine and access the population estimates",
+                    "text": "obtain data necessary to determine and access the population estimates",
                     "label": "USE_CASE"
                 },
                 {
@@ -1758,7 +1970,7 @@
                 },
                 {
                     "text": "SWUCA 2 rules",
-                    "label": "SYSTEM_BOUNDARY"
+                    "label": "CLASS"
                 },
                 {
                     "text": "Seasonal residential report",
@@ -1775,38 +1987,28 @@
             ],
             "relations": [
                 {
-                    "subject": "SWUCA 2 rules",
-                    "predicate": "CONTAINS",
-                    "object": "obtain data"
-                },
-                {
-                    "subject": "SWUCA 2 rules",
-                    "predicate": "CONTAINS",
-                    "object": "determine and access the population estimates"
-                },
-                {
-                    "subject": "obtain data",
-                    "predicate": "PRECEDES",
-                    "object": "determine and access the population estimates"
-                },
-                {
-                    "subject": "determine and access the population estimates",
+                    "subject": "obtain data necessary to determine and access the population estimates",
                     "predicate": "ASSOCIATION",
                     "object": "population estimates"
                 },
                 {
-                    "subject": "area",
-                    "predicate": "OWNS",
-                    "object": "population estimates"
+                    "subject": "population estimates",
+                    "predicate": "ASSOCIATION",
+                    "object": "area"
                 },
                 {
-                    "subject": "permit",
-                    "predicate": "OWNS",
-                    "object": "population estimates"
+                    "subject": "population estimates",
+                    "predicate": "ASSOCIATION",
+                    "object": "permit"
+                },
+                {
+                    "subject": "obtain data necessary to determine and access the population estimates",
+                    "predicate": "ASSOCIATION",
+                    "object": "SWUCA 2 rules"
                 },
                 {
                     "subject": "Seasonal residential report",
-                    "predicate": "ASSOCIATION",
+                    "predicate": "ONE_TO_ONE_ASSOCIATION",
                     "object": "AHCA hospital report"
                 },
                 {
@@ -1815,9 +2017,9 @@
                     "object": "seasonal populations"
                 },
                 {
-                    "subject": "Seasonal residential report",
-                    "predicate": "ASSOCIATION",
-                    "object": "population estimates"
+                    "subject": "obtain data necessary to determine and access the population estimates",
+                    "predicate": "INCLUDE",
+                    "object": "Seasonal residential report"
                 }
             ]
         }
@@ -1840,11 +2042,11 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "sprint",
-                    "label": "SYSTEM_BOUNDARY"
+                    "text": "visual design related tasks",
+                    "label": "CLASS"
                 },
                 {
-                    "text": "visual design related tasks",
+                    "text": "sprint",
                     "label": "CLASS"
                 }
             ],
@@ -1861,12 +2063,12 @@
                 },
                 {
                     "subject": "know what visual design related tasks we might need to plan",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "assign tasks"
                 },
                 {
                     "subject": "sprint",
-                    "predicate": "CONTAINS",
+                    "predicate": "ONE_TO_MANY_ASSOCIATION",
                     "object": "visual design related tasks"
                 },
                 {
@@ -1891,7 +2093,15 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "access, analyze and/or export the needed information",
+                    "text": "access information",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "analyze information",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "export information",
                     "label": "USE_CASE"
                 },
                 {
@@ -1912,22 +2122,42 @@
                 {
                     "subject": "Planning Staff member",
                     "predicate": "PERFORMS",
-                    "object": "access, analyze and/or export the needed information"
+                    "object": "access information"
+                },
+                {
+                    "subject": "Planning Staff member",
+                    "predicate": "PERFORMS",
+                    "object": "analyze information"
+                },
+                {
+                    "subject": "Planning Staff member",
+                    "predicate": "PERFORMS",
+                    "object": "export information"
                 },
                 {
                     "subject": "Generate Planning-related Reports",
-                    "predicate": "PRECEDES",
-                    "object": "access, analyze and/or export the needed information"
+                    "predicate": "INCLUDE",
+                    "object": "access information"
                 },
                 {
                     "subject": "Generate Planning-related Reports",
-                    "predicate": "ASSOCIATION",
-                    "object": "Planning-related Reports"
+                    "predicate": "INCLUDE",
+                    "object": "analyze information"
+                },
+                {
+                    "subject": "Generate Planning-related Reports",
+                    "predicate": "INCLUDE",
+                    "object": "export information"
                 },
                 {
                     "subject": "Planning-related Reports",
                     "predicate": "OWNS",
                     "object": "format"
+                },
+                {
+                    "subject": "Generate Planning-related Reports",
+                    "predicate": "ASSOCIATION",
+                    "object": "Planning-related Reports"
                 }
             ]
         }
@@ -1938,16 +2168,16 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
-                },
-                {
-                    "text": "managing application roles",
-                    "label": "USE_CASE"
                 },
                 {
                     "text": "user interface",
                     "label": "CLASS"
+                },
+                {
+                    "text": "managing application roles",
+                    "label": "USE_CASE"
                 },
                 {
                     "text": "application roles",
@@ -1956,19 +2186,24 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "managing application roles"
                 },
                 {
-                    "subject": "managing application roles",
-                    "predicate": "ASSOCIATION",
+                    "subject": "system",
+                    "predicate": "OWNS",
                     "object": "user interface"
                 },
                 {
                     "subject": "managing application roles",
                     "predicate": "ASSOCIATION",
                     "object": "application roles"
+                },
+                {
+                    "subject": "managing application roles",
+                    "predicate": "ASSOCIATION",
+                    "object": "user interface"
                 }
             ]
         }
@@ -2045,7 +2280,7 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "own platform",
+                    "text": "platform",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -2066,13 +2301,13 @@
                 },
                 {
                     "subject": "change the colors of the embedded visualisations",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "customize the visualisations"
                 },
                 {
-                    "subject": "own platform",
+                    "subject": "platform",
                     "predicate": "CONTAINS",
-                    "object": "embedded visualisations"
+                    "object": "change the colors of the embedded visualisations"
                 },
                 {
                     "subject": "embedded visualisations",
@@ -2101,7 +2336,11 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "view or edit",
+                    "text": "view medical information",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "edit medical information",
                     "label": "USE_CASE"
                 },
                 {
@@ -2118,15 +2357,30 @@
                 {
                     "subject": "user",
                     "predicate": "PERFORMS",
-                    "object": "view or edit"
+                    "object": "view medical information"
                 },
                 {
-                    "subject": "logged on",
-                    "predicate": "PRECEDES",
-                    "object": "view or edit"
+                    "subject": "user",
+                    "predicate": "PERFORMS",
+                    "object": "edit medical information"
                 },
                 {
-                    "subject": "view or edit",
+                    "subject": "view medical information",
+                    "predicate": "INCLUDE",
+                    "object": "logged on"
+                },
+                {
+                    "subject": "edit medical information",
+                    "predicate": "INCLUDE",
+                    "object": "logged on"
+                },
+                {
+                    "subject": "view medical information",
+                    "predicate": "ASSOCIATION",
+                    "object": "medical information"
+                },
+                {
+                    "subject": "edit medical information",
                     "predicate": "ASSOCIATION",
                     "object": "medical information"
                 }
@@ -2147,29 +2401,38 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "temperature",
-                    "label": "STRING_ATTRIBUTE"
+                    "text": "temperature reported",
+                    "label": "USE_CASE"
                 },
                 {
                     "text": "maximum deviation value",
+                    "label": "STRING_ATTRIBUTE"
+                },
+                {
+                    "text": "3 degrees Fahrenheit",
                     "label": "STRING_ATTRIBUTE"
                 }
             ],
             "relations": [
                 {
                     "subject": "THEMAS system",
+                    "predicate": "CONTAINS",
+                    "object": "temperature reported"
+                },
+                {
+                    "subject": "temperature reported",
                     "predicate": "ASSOCIATION",
                     "object": "thermostat"
                 },
                 {
                     "subject": "thermostat",
                     "predicate": "OWNS",
-                    "object": "temperature"
+                    "object": "maximum deviation value"
                 },
                 {
-                    "subject": "temperature",
-                    "predicate": "OWNS",
-                    "object": "maximum deviation value"
+                    "subject": "maximum deviation value",
+                    "predicate": "ASSOCIATION",
+                    "object": "3 degrees Fahrenheit"
                 }
             ]
         }
@@ -2188,16 +2451,16 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "traffic data",
+                    "text": "cached traffic data",
                     "label": "CLASS"
                 },
                 {
-                    "text": "raw",
-                    "label": "BOOLEAN_ATTRIBUTE"
+                    "text": "raw traffic data",
+                    "label": "CLASS"
                 },
                 {
-                    "text": "derived",
-                    "label": "BOOLEAN_ATTRIBUTE"
+                    "text": "derived traffic data",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -2209,17 +2472,17 @@
                 {
                     "subject": "archive cached traffic data",
                     "predicate": "ASSOCIATION",
-                    "object": "traffic data"
+                    "object": "cached traffic data"
                 },
                 {
-                    "subject": "traffic data",
-                    "predicate": "OWNS",
-                    "object": "raw"
+                    "subject": "cached traffic data",
+                    "predicate": "GENERALIZATION",
+                    "object": "raw traffic data"
                 },
                 {
-                    "subject": "traffic data",
-                    "predicate": "OWNS",
-                    "object": "derived"
+                    "subject": "cached traffic data",
+                    "predicate": "GENERALIZATION",
+                    "object": "derived traffic data"
                 }
             ]
         }
@@ -2238,6 +2501,14 @@
                     "label": "ACTOR"
                 },
                 {
+                    "text": "user interface",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "disputable transactions",
+                    "label": "CLASS"
+                },
+                {
                     "text": "select disputable transactions",
                     "label": "USE_CASE"
                 },
@@ -2246,20 +2517,12 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "disputable transactions",
-                    "label": "CLASS"
-                },
-                {
-                    "text": "user interface",
-                    "label": "CLASS"
-                },
-                {
                     "text": "ticket retrieval request",
-                    "label": "CLASS"
+                    "label": "USE_CASE"
                 },
                 {
                     "text": "chargeback notification",
-                    "label": "CLASS"
+                    "label": "USE_CASE"
                 },
                 {
                     "text": "age of the transaction",
@@ -2289,18 +2552,13 @@
                 },
                 {
                     "subject": "select disputable transactions",
-                    "predicate": "PRECEDES",
-                    "object": "initiate a dispute"
+                    "predicate": "ASSOCIATION",
+                    "object": "user interface"
                 },
                 {
                     "subject": "select disputable transactions",
                     "predicate": "ASSOCIATION",
                     "object": "disputable transactions"
-                },
-                {
-                    "subject": "select disputable transactions",
-                    "predicate": "ASSOCIATION",
-                    "object": "user interface"
                 },
                 {
                     "subject": "disputable transactions",
@@ -2309,23 +2567,18 @@
                 },
                 {
                     "subject": "initiate a dispute",
-                    "predicate": "ASSOCIATION",
+                    "predicate": "GENERALIZATION",
                     "object": "ticket retrieval request"
                 },
                 {
                     "subject": "initiate a dispute",
-                    "predicate": "ASSOCIATION",
+                    "predicate": "GENERALIZATION",
                     "object": "chargeback notification"
                 },
                 {
-                    "subject": "ticket retrieval request",
-                    "predicate": "IS_A",
-                    "object": "initiate a dispute"
-                },
-                {
-                    "subject": "chargeback notification",
-                    "predicate": "IS_A",
-                    "object": "initiate a dispute"
+                    "subject": "initiate a dispute",
+                    "predicate": "INCLUDE",
+                    "object": "select disputable transactions"
                 }
             ]
         }
@@ -2340,16 +2593,16 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "Packager support Constants",
+                    "text": "Packager",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "support Constants",
                     "label": "USE_CASE"
                 },
                 {
                     "text": "model dimensions",
                     "label": "USE_CASE"
-                },
-                {
-                    "text": "Packager",
-                    "label": "SYSTEM_BOUNDARY"
                 },
                 {
                     "text": "Constants",
@@ -2368,7 +2621,7 @@
                 {
                     "subject": "Data Publishing User",
                     "predicate": "PERFORMS",
-                    "object": "Packager support Constants"
+                    "object": "support Constants"
                 },
                 {
                     "subject": "Data Publishing User",
@@ -2376,14 +2629,14 @@
                     "object": "model dimensions"
                 },
                 {
-                    "subject": "Packager support Constants",
-                    "predicate": "PRECEDES",
-                    "object": "model dimensions"
-                },
-                {
-                    "subject": "Packager support Constants",
+                    "subject": "Packager",
                     "predicate": "ASSOCIATION",
                     "object": "Constants"
+                },
+                {
+                    "subject": "support Constants",
+                    "predicate": "INCLUDE",
+                    "object": "model dimensions"
                 },
                 {
                     "subject": "model dimensions",
@@ -2394,6 +2647,11 @@
                     "subject": "dimensions",
                     "predicate": "ASSOCIATION",
                     "object": "source file"
+                },
+                {
+                    "subject": "Constants",
+                    "predicate": "ASSOCIATION",
+                    "object": "dimensions"
                 }
             ]
         }
@@ -2404,7 +2662,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -2418,7 +2676,7 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "analyze the detected vulnerability"
                 },
@@ -2436,11 +2694,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "leads",
-                    "label": "CLASS"
-                },
-                {
-                    "text": "score",
+                    "text": "leads score",
                     "label": "STRING_ATTRIBUTE"
                 },
                 {
@@ -2448,34 +2702,29 @@
                     "label": "STRING_ATTRIBUTE"
                 },
                 {
-                    "text": "ARA functionality",
-                    "label": "SYSTEM_BOUNDARY"
+                    "text": "process by the ARA functionality",
+                    "label": "USE_CASE"
                 },
                 {
-                    "text": "process",
-                    "label": "USE_CASE"
+                    "text": "ARA functionality",
+                    "label": "SYSTEM_BOUNDARY"
                 }
             ],
             "relations": [
                 {
-                    "subject": "leads",
-                    "predicate": "OWNS",
-                    "object": "score"
-                },
-                {
-                    "subject": "score",
-                    "predicate": "ASSOCIATION",
-                    "object": "high average score"
-                },
-                {
                     "subject": "ARA functionality",
                     "predicate": "CONTAINS",
-                    "object": "process"
+                    "object": "process by the ARA functionality"
                 },
                 {
-                    "subject": "process",
+                    "subject": "process by the ARA functionality",
                     "predicate": "ASSOCIATION",
-                    "object": "leads"
+                    "object": "leads score"
+                },
+                {
+                    "subject": "leads score",
+                    "predicate": "ASSOCIATION",
+                    "object": "high average score"
                 }
             ]
         }
@@ -2486,7 +2735,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -2500,7 +2749,7 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "modification of the display"
                 },
@@ -2531,7 +2780,7 @@
                 },
                 {
                     "text": "user",
-                    "label": "ACTOR"
+                    "label": "CLASS"
                 },
                 {
                     "text": "blood pressure",
@@ -2540,13 +2789,13 @@
             ],
             "relations": [
                 {
-                    "subject": "MedicalCaregiver",
-                    "predicate": "PERFORMS",
+                    "subject": "ALFRED",
+                    "predicate": "CONTAINS",
                     "object": "determine the user's blood pressure"
                 },
                 {
-                    "subject": "ALFRED",
-                    "predicate": "CONTAINS",
+                    "subject": "MedicalCaregiver",
+                    "predicate": "PERFORMS",
                     "object": "determine the user's blood pressure"
                 },
                 {
@@ -2557,7 +2806,7 @@
                 {
                     "subject": "determine the user's blood pressure",
                     "predicate": "ASSOCIATION",
-                    "object": "blood pressure"
+                    "object": "user"
                 }
             ]
         }
@@ -2581,11 +2830,11 @@
                 },
                 {
                     "text": "friends",
-                    "label": "ACTOR"
+                    "label": "CLASS"
                 },
                 {
                     "text": "family",
-                    "label": "ACTOR"
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -2626,6 +2875,10 @@
                     "label": "USE_CASE"
                 },
                 {
+                    "text": "investigation",
+                    "label": "CLASS"
+                },
+                {
                     "text": "investigation controls",
                     "label": "CLASS"
                 },
@@ -2634,12 +2887,12 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "demographic characteristics",
-                    "label": "STRING_ATTRIBUTE"
+                    "text": "agent",
+                    "label": "CLASS"
                 },
                 {
-                    "text": "infected with the agent",
-                    "label": "BOOLEAN_ATTRIBUTE"
+                    "text": "demographic characteristics",
+                    "label": "STRING_ATTRIBUTE"
                 }
             ],
             "relations": [
@@ -2651,15 +2904,20 @@
                 {
                     "subject": "classify entities as investigation controls",
                     "predicate": "ASSOCIATION",
-                    "object": "investigation controls"
+                    "object": "investigation"
                 },
                 {
-                    "subject": "investigation controls",
+                    "subject": "classify entities as investigation controls",
+                    "predicate": "ASSOCIATION",
+                    "object": "investigation_controls"
+                },
+                {
+                    "subject": "investigation_controls",
                     "predicate": "ASSOCIATION",
                     "object": "subject of the case"
                 },
                 {
-                    "subject": "investigation controls",
+                    "subject": "investigation_controls",
                     "predicate": "OWNS",
                     "object": "demographic characteristics"
                 },
@@ -2669,9 +2927,9 @@
                     "object": "demographic characteristics"
                 },
                 {
-                    "subject": "investigation controls",
-                    "predicate": "OWNS",
-                    "object": "infected with the agent"
+                    "subject": "investigation",
+                    "predicate": "ASSOCIATION",
+                    "object": "agent"
                 }
             ]
         }
@@ -2699,11 +2957,7 @@
                 },
                 {
                     "text": "students",
-                    "label": "ACTOR"
-                },
-                {
-                    "text": "registered",
-                    "label": "BOOLEAN_ATTRIBUTE"
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -2726,11 +2980,6 @@
                     "subject": "students",
                     "predicate": "ASSOCIATION",
                     "object": "clinical lab section"
-                },
-                {
-                    "subject": "students",
-                    "predicate": "OWNS",
-                    "object": "registered"
                 }
             ]
         }
@@ -2753,16 +3002,8 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "application",
-                    "label": "SYSTEM_BOUNDARY"
-                },
-                {
-                    "text": "built version",
+                    "text": "built version of application",
                     "label": "CLASS"
-                },
-                {
-                    "text": "prepackaged",
-                    "label": "BOOLEAN_ATTRIBUTE"
                 }
             ],
             "relations": [
@@ -2777,19 +3018,9 @@
                     "object": "configuration"
                 },
                 {
-                    "subject": "application",
-                    "predicate": "ASSOCIATION",
-                    "object": "built version"
-                },
-                {
-                    "subject": "built version",
-                    "predicate": "ASSOCIATION",
-                    "object": "configuration"
-                },
-                {
                     "subject": "configuration",
-                    "predicate": "OWNS",
-                    "object": "prepackaged"
+                    "predicate": "ASSOCIATION",
+                    "object": "built version of application"
                 }
             ]
         }
@@ -2877,11 +3108,15 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
-                    "text": "creation and editing of user details",
+                    "text": "creation of user details",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "editing of user details",
                     "label": "USE_CASE"
                 },
                 {
@@ -2891,12 +3126,22 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
-                    "object": "creation and editing of user details"
+                    "object": "creation of user details"
                 },
                 {
-                    "subject": "creation and editing of user details",
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "editing of user details"
+                },
+                {
+                    "subject": "creation of user details",
+                    "predicate": "ASSOCIATION",
+                    "object": "user details"
+                },
+                {
+                    "subject": "editing of user details",
                     "predicate": "ASSOCIATION",
                     "object": "user details"
                 }
@@ -2946,7 +3191,7 @@
                 },
                 {
                     "subject": "search using structured data",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "find everything relevant to my inquiry"
                 },
                 {
@@ -2977,6 +3222,10 @@
                     "label": "ACTOR"
                 },
                 {
+                    "text": "Applicant",
+                    "label": "ACTOR"
+                },
+                {
                     "text": "Review the Code Modifications",
                     "label": "USE_CASE"
                 },
@@ -2993,20 +3242,12 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "Applicant",
-                    "label": "ACTOR"
-                },
-                {
                     "text": "request",
                     "label": "CLASS"
                 },
                 {
                     "text": "project",
                     "label": "CLASS"
-                },
-                {
-                    "text": "approved",
-                    "label": "BOOLEAN_ATTRIBUTE"
                 }
             ],
             "relations": [
@@ -3027,13 +3268,18 @@
                 },
                 {
                     "subject": "Review the Code Modifications",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "review the request"
                 },
                 {
-                    "subject": "review the request",
-                    "predicate": "PRECEDES",
+                    "subject": "Review the Code Modifications",
+                    "predicate": "INCLUDE",
                     "object": "associate it with the appropriate project"
+                },
+                {
+                    "subject": "Applicant",
+                    "predicate": "PERFORMS",
+                    "object": "Review the Code Modifications"
                 },
                 {
                     "subject": "Review the Code Modifications",
@@ -3041,19 +3287,9 @@
                     "object": "Code Modifications"
                 },
                 {
-                    "subject": "Applicant",
-                    "predicate": "ASSOCIATION",
-                    "object": "Code Modifications"
-                },
-                {
                     "subject": "review the request",
                     "predicate": "ASSOCIATION",
                     "object": "request"
-                },
-                {
-                    "subject": "request",
-                    "predicate": "OWNS",
-                    "object": "approved"
                 },
                 {
                     "subject": "associate it with the appropriate project",
@@ -3073,7 +3309,15 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "filter, sort and aggregate data",
+                    "text": "filter data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "sort data",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "aggregate data",
                     "label": "USE_CASE"
                 },
                 {
@@ -3091,17 +3335,23 @@
                 {
                     "text": "measures",
                     "label": "CLASS"
-                },
-                {
-                    "text": "views",
-                    "label": "CLASS"
                 }
             ],
             "relations": [
                 {
                     "subject": "Data Consuming User",
                     "predicate": "PERFORMS",
-                    "object": "filter, sort and aggregate data"
+                    "object": "filter data"
+                },
+                {
+                    "subject": "Data Consuming User",
+                    "predicate": "PERFORMS",
+                    "object": "sort data"
+                },
+                {
+                    "subject": "Data Consuming User",
+                    "predicate": "PERFORMS",
+                    "object": "aggregate data"
                 },
                 {
                     "subject": "Data Consuming User",
@@ -3109,34 +3359,49 @@
                     "object": "get more granular views on the data"
                 },
                 {
-                    "subject": "filter, sort and aggregate data",
-                    "predicate": "PRECEDES",
+                    "subject": "filter data",
+                    "predicate": "INCLUDE",
                     "object": "get more granular views on the data"
                 },
                 {
-                    "subject": "filter, sort and aggregate data",
+                    "subject": "sort data",
+                    "predicate": "INCLUDE",
+                    "object": "get more granular views on the data"
+                },
+                {
+                    "subject": "aggregate data",
+                    "predicate": "INCLUDE",
+                    "object": "get more granular views on the data"
+                },
+                {
+                    "subject": "filter data",
                     "predicate": "ASSOCIATION",
                     "object": "data"
                 },
                 {
-                    "subject": "filter, sort and aggregate data",
+                    "subject": "sort data",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                },
+                {
+                    "subject": "aggregate data",
+                    "predicate": "ASSOCIATION",
+                    "object": "data"
+                },
+                {
+                    "subject": "filter data",
                     "predicate": "ASSOCIATION",
                     "object": "dimensions"
                 },
                 {
-                    "subject": "filter, sort and aggregate data",
+                    "subject": "sort data",
+                    "predicate": "ASSOCIATION",
+                    "object": "dimensions"
+                },
+                {
+                    "subject": "aggregate data",
                     "predicate": "ASSOCIATION",
                     "object": "measures"
-                },
-                {
-                    "subject": "get more granular views on the data",
-                    "predicate": "ASSOCIATION",
-                    "object": "views"
-                },
-                {
-                    "subject": "views",
-                    "predicate": "ASSOCIATION",
-                    "object": "data"
                 }
             ]
         }
@@ -3155,6 +3420,10 @@
                     "label": "USE_CASE"
                 },
                 {
+                    "text": "make the game more personal",
+                    "label": "USE_CASE"
+                },
+                {
                     "text": "thumbnail photo",
                     "label": "CLASS"
                 },
@@ -3164,7 +3433,7 @@
                 },
                 {
                     "text": "game",
-                    "label": "SYSTEM_BOUNDARY"
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -3174,9 +3443,14 @@
                     "object": "display thumbnail photo"
                 },
                 {
-                    "subject": "game",
-                    "predicate": "CONTAINS",
-                    "object": "display thumbnail photo"
+                    "subject": "participant",
+                    "predicate": "PERFORMS",
+                    "object": "make the game more personal"
+                },
+                {
+                    "subject": "display thumbnail photo",
+                    "predicate": "INCLUDE",
+                    "object": "make the game more personal"
                 },
                 {
                     "subject": "display thumbnail photo",
@@ -3189,14 +3463,9 @@
                     "object": "cards"
                 },
                 {
-                    "subject": "participant",
-                    "predicate": "OWNS",
-                    "object": "cards"
-                },
-                {
-                    "subject": "participant",
-                    "predicate": "OWNS",
-                    "object": "thumbnail photo"
+                    "subject": "make the game more personal",
+                    "predicate": "ASSOCIATION",
+                    "object": "game"
                 }
             ]
         }
@@ -3216,7 +3485,7 @@
                 },
                 {
                     "text": "participant",
-                    "label": "ACTOR"
+                    "label": "CLASS"
                 },
                 {
                     "text": "important participant",
@@ -3236,7 +3505,7 @@
                 },
                 {
                     "subject": "important participant",
-                    "predicate": "IS_A",
+                    "predicate": "SPECIALIZATION",
                     "object": "participant"
                 }
             ]
@@ -3252,11 +3521,11 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "check that data is still good",
+                    "text": "update my data",
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "update data",
+                    "text": "check that data is still good",
                     "label": "USE_CASE"
                 },
                 {
@@ -3274,13 +3543,17 @@
                 {
                     "text": "errors",
                     "label": "CLASS"
+                },
+                {
+                    "text": "reliable data",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
                 {
                     "subject": "publisher",
                     "predicate": "PERFORMS",
-                    "object": "update data"
+                    "object": "update my data"
                 },
                 {
                     "subject": "publisher",
@@ -3288,27 +3561,32 @@
                     "object": "check that data is still good"
                 },
                 {
-                    "subject": "update data",
-                    "predicate": "PRECEDES",
+                    "subject": "publisher",
+                    "predicate": "PERFORMS",
+                    "object": "catch errors early"
+                },
+                {
+                    "subject": "publisher",
+                    "predicate": "PERFORMS",
+                    "object": "store reliable data"
+                },
+                {
+                    "subject": "update my data",
+                    "predicate": "INCLUDE",
                     "object": "check that data is still good"
                 },
                 {
                     "subject": "check that data is still good",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "catch errors early"
                 },
                 {
-                    "subject": "catch errors early",
-                    "predicate": "PRECEDES",
+                    "subject": "check that data is still good",
+                    "predicate": "INCLUDE",
                     "object": "store reliable data"
                 },
                 {
-                    "subject": "update data",
-                    "predicate": "ASSOCIATION",
-                    "object": "data"
-                },
-                {
-                    "subject": "check that data is still good",
+                    "subject": "update my data",
                     "predicate": "ASSOCIATION",
                     "object": "data"
                 },
@@ -3320,6 +3598,11 @@
                 {
                     "subject": "store reliable data",
                     "predicate": "ASSOCIATION",
+                    "object": "reliable data"
+                },
+                {
+                    "subject": "reliable data",
+                    "predicate": "SPECIALIZATION",
                     "object": "data"
                 }
             ]
@@ -3335,7 +3618,11 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "configure the help center URL and topic mappings",
+                    "text": "configure the help center URL",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "configure topic mappings",
                     "label": "USE_CASE"
                 },
                 {
@@ -3351,15 +3638,20 @@
                 {
                     "subject": "Application Administrator",
                     "predicate": "PERFORMS",
-                    "object": "configure the help center URL and topic mappings"
+                    "object": "configure the help center URL"
                 },
                 {
-                    "subject": "configure the help center URL and topic mappings",
+                    "subject": "Application Administrator",
+                    "predicate": "PERFORMS",
+                    "object": "configure topic mappings"
+                },
+                {
+                    "subject": "configure the help center URL",
                     "predicate": "ASSOCIATION",
                     "object": "help center URL"
                 },
                 {
-                    "subject": "configure the help center URL and topic mappings",
+                    "subject": "configure topic mappings",
                     "predicate": "ASSOCIATION",
                     "object": "topic mappings"
                 }
@@ -3380,12 +3672,12 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "prevent spamming on the websites",
+                    "text": "prevent spamming",
                     "label": "USE_CASE"
                 },
                 {
                     "text": "users",
-                    "label": "ACTOR"
+                    "label": "CLASS"
                 },
                 {
                     "text": "IP address",
@@ -3405,17 +3697,17 @@
                 {
                     "subject": "admin",
                     "predicate": "PERFORMS",
-                    "object": "prevent spamming on the websites"
+                    "object": "prevent spamming"
+                },
+                {
+                    "subject": "websites",
+                    "predicate": "CONTAINS",
+                    "object": "block specific users"
                 },
                 {
                     "subject": "block specific users",
-                    "predicate": "PRECEDES",
-                    "object": "prevent spamming on the websites"
-                },
-                {
-                    "subject": "users",
-                    "predicate": "OWNS",
-                    "object": "IP address"
+                    "predicate": "INCLUDE",
+                    "object": "prevent spamming"
                 },
                 {
                     "subject": "block specific users",
@@ -3423,14 +3715,9 @@
                     "object": "users"
                 },
                 {
-                    "subject": "block specific users",
-                    "predicate": "ASSOCIATION",
+                    "subject": "users",
+                    "predicate": "OWNS",
                     "object": "IP address"
-                },
-                {
-                    "subject": "websites",
-                    "predicate": "CONTAINS",
-                    "object": "prevent spamming on the websites"
                 }
             ]
         }
@@ -3441,55 +3728,56 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
-                    "text": "interface",
-                    "label": "CLASS"
+                    "text": "provide an interface to communicate",
+                    "label": "USE_CASE"
                 },
                 {
                     "text": "external service",
-                    "label": "ACTOR"
-                },
-                {
-                    "text": "third-party software",
-                    "label": "ACTOR"
-                },
-                {
-                    "text": "standard interfaces25",
                     "label": "CLASS"
                 },
                 {
-                    "text": "communicate with an external service or third-party software",
-                    "label": "USE_CASE"
+                    "text": "third-party software",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "standard interfaces",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
-                    "object": "communicate with an external service or third-party software"
+                    "object": "provide an interface to communicate"
                 },
                 {
-                    "subject": "communicate with an external service or third-party software",
-                    "predicate": "ASSOCIATION",
-                    "object": "interface"
-                },
-                {
-                    "subject": "communicate with an external service or third-party software",
+                    "subject": "provide an interface to communicate",
                     "predicate": "ASSOCIATION",
                     "object": "external service"
                 },
                 {
-                    "subject": "communicate with an external service or third-party software",
+                    "subject": "provide an interface to communicate",
                     "predicate": "ASSOCIATION",
                     "object": "third-party software"
                 },
                 {
-                    "subject": "standard interfaces25",
-                    "predicate": "IS_A",
-                    "object": "interface"
+                    "subject": "provide an interface to communicate",
+                    "predicate": "ASSOCIATION",
+                    "object": "standard interfaces"
+                },
+                {
+                    "subject": "standard interfaces",
+                    "predicate": "SPECIALIZATION",
+                    "object": "external service"
+                },
+                {
+                    "subject": "standard interfaces",
+                    "predicate": "SPECIALIZATION",
+                    "object": "third-party software"
                 }
             ]
         }
@@ -3500,7 +3788,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -3514,7 +3802,7 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "user credentials registration"
                 },
@@ -3536,7 +3824,15 @@
                     "label": "ACTOR"
                 },
                 {
+                    "text": "HATS-GUI",
+                    "label": "SYSTEM_BOUNDARY"
+                },
+                {
                     "text": "expand displayed nodes",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "change the graph display",
                     "label": "USE_CASE"
                 },
                 {
@@ -3544,19 +3840,11 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "HATS-GUI",
-                    "label": "SYSTEM_BOUNDARY"
-                },
-                {
-                    "text": "change the graph display",
-                    "label": "USE_CASE"
-                },
-                {
-                    "text": "graph display",
+                    "text": "descendant nodes",
                     "label": "CLASS"
                 },
                 {
-                    "text": "descendant nodes",
+                    "text": "displayed graph",
                     "label": "CLASS"
                 },
                 {
@@ -3580,13 +3868,13 @@
                     "object": "expand displayed nodes"
                 },
                 {
-                    "subject": "expand displayed nodes",
-                    "predicate": "PRECEDES",
+                    "subject": "HATS-GUI",
+                    "predicate": "CONTAINS",
                     "object": "change the graph display"
                 },
                 {
-                    "subject": "HATS-GUI",
-                    "predicate": "CONTAINS",
+                    "subject": "expand displayed nodes",
+                    "predicate": "INCLUDE",
                     "object": "change the graph display"
                 },
                 {
@@ -3597,7 +3885,7 @@
                 {
                     "subject": "change the graph display",
                     "predicate": "ASSOCIATION",
-                    "object": "graph display"
+                    "object": "displayed graph"
                 },
                 {
                     "subject": "change the graph display",
@@ -3605,13 +3893,13 @@
                     "object": "descendant nodes"
                 },
                 {
-                    "subject": "displayed nodes",
-                    "predicate": "IS_A",
-                    "object": "expandable nodes"
+                    "subject": "expandable nodes",
+                    "predicate": "SPECIALIZATION",
+                    "object": "displayed nodes"
                 },
                 {
                     "subject": "internal nodes",
-                    "predicate": "IS_A",
+                    "predicate": "SPECIALIZATION",
                     "object": "displayed nodes"
                 }
             ]
@@ -3623,7 +3911,7 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
@@ -3643,28 +3931,28 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "keywords",
+                    "text": "database",
                     "label": "CLASS"
                 },
                 {
-                    "text": "database",
+                    "text": "keywords",
                     "label": "CLASS"
                 }
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "pre-process the unstructured data into meaning information"
                 },
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
                     "object": "match with existing keywords in database"
                 },
                 {
                     "subject": "pre-process the unstructured data into meaning information",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "match with existing keywords in database"
                 },
                 {
@@ -3680,16 +3968,16 @@
                 {
                     "subject": "match with existing keywords in database",
                     "predicate": "ASSOCIATION",
+                    "object": "database"
+                },
+                {
+                    "subject": "database",
+                    "predicate": "OWNS",
                     "object": "keywords"
                 },
                 {
                     "subject": "match with existing keywords in database",
                     "predicate": "ASSOCIATION",
-                    "object": "database"
-                },
-                {
-                    "subject": "database",
-                    "predicate": "CONTAINS",
                     "object": "keywords"
                 }
             ]
@@ -3709,19 +3997,7 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "recalculation behavior",
-                    "label": "CLASS"
-                },
-                {
-                    "text": "derived data",
-                    "label": "CLASS"
-                },
-                {
-                    "text": "do nothing",
-                    "label": "CLASS"
-                },
-                {
-                    "text": "alert user that recalculation is required",
+                    "text": "alert user",
                     "label": "USE_CASE"
                 },
                 {
@@ -3729,11 +4005,19 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "user",
-                    "label": "ACTOR"
+                    "text": "derived data",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "recalculation behavior",
+                    "label": "CLASS"
                 },
                 {
                     "text": "inspection",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "options",
                     "label": "CLASS"
                 }
             ],
@@ -3754,24 +4038,19 @@
                     "object": "derived data"
                 },
                 {
-                    "subject": "do nothing",
-                    "predicate": "IS_A",
-                    "object": "recalculation behavior"
+                    "subject": "configure the recalculation behavior",
+                    "predicate": "ASSOCIATION",
+                    "object": "options"
                 },
                 {
-                    "subject": "alert user that recalculation is required",
-                    "predicate": "IS_A",
-                    "object": "recalculation behavior"
+                    "subject": "alert user",
+                    "predicate": "SPECIALIZATION",
+                    "object": "configure the recalculation behavior"
                 },
                 {
                     "subject": "recalculate silently",
-                    "predicate": "IS_A",
-                    "object": "recalculation behavior"
-                },
-                {
-                    "subject": "alert user that recalculation is required",
-                    "predicate": "ASSOCIATION",
-                    "object": "user"
+                    "predicate": "SPECIALIZATION",
+                    "object": "configure the recalculation behavior"
                 },
                 {
                     "subject": "recalculate silently",
@@ -3791,33 +4070,38 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "know which piece of education I should give",
+                    "text": "know which piece of education to give",
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "piece of education",
+                    "text": "education",
                     "label": "CLASS"
                 },
                 {
                     "text": "volunteer",
-                    "label": "ACTOR"
+                    "label": "CLASS"
                 }
             ],
             "relations": [
                 {
                     "subject": "Zooniverse admin",
                     "predicate": "PERFORMS",
-                    "object": "know which piece of education I should give"
+                    "object": "know which piece of education to give"
                 },
                 {
-                    "subject": "know which piece of education I should give",
+                    "subject": "know which piece of education to give",
                     "predicate": "ASSOCIATION",
-                    "object": "piece of education"
+                    "object": "education"
                 },
                 {
-                    "subject": "know which piece of education I should give",
+                    "subject": "know which piece of education to give",
                     "predicate": "ASSOCIATION",
                     "object": "volunteer"
+                },
+                {
+                    "subject": "volunteer",
+                    "predicate": "ASSOCIATION",
+                    "object": "education"
                 }
             ]
         }
@@ -3828,16 +4112,16 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
-                },
-                {
-                    "text": "retrieve recycled parts search results",
-                    "label": "USE_CASE"
                 },
                 {
                     "text": "estimator",
                     "label": "ACTOR"
+                },
+                {
+                    "text": "retrieve recycled parts search results",
+                    "label": "USE_CASE"
                 },
                 {
                     "text": "recycled parts search results",
@@ -3846,19 +4130,19 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
+                    "object": "retrieve recycled parts search results"
+                },
+                {
+                    "subject": "estimator",
+                    "predicate": "PERFORMS",
                     "object": "retrieve recycled parts search results"
                 },
                 {
                     "subject": "retrieve recycled parts search results",
                     "predicate": "ASSOCIATION",
                     "object": "recycled parts search results"
-                },
-                {
-                    "subject": "retrieve recycled parts search results",
-                    "predicate": "ASSOCIATION",
-                    "object": "estimator"
                 }
             ]
         }
@@ -3869,11 +4153,15 @@
         "inferences": {
             "entities": [
                 {
-                    "text": "The system",
+                    "text": "system",
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
-                    "text": "monitoring and scanning the network",
+                    "text": "monitoring the network",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "scanning the network",
                     "label": "USE_CASE"
                 },
                 {
@@ -3883,12 +4171,22 @@
             ],
             "relations": [
                 {
-                    "subject": "The system",
+                    "subject": "system",
                     "predicate": "CONTAINS",
-                    "object": "monitoring and scanning the network"
+                    "object": "monitoring the network"
                 },
                 {
-                    "subject": "monitoring and scanning the network",
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "scanning the network"
+                },
+                {
+                    "subject": "monitoring the network",
+                    "predicate": "ASSOCIATION",
+                    "object": "network"
+                },
+                {
+                    "subject": "scanning the network",
                     "predicate": "ASSOCIATION",
                     "object": "network"
                 }
@@ -3909,7 +4207,7 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "sort works",
+                    "text": "see the evolution of their scholarship",
                     "label": "USE_CASE"
                 },
                 {
@@ -3934,12 +4232,12 @@
                 {
                     "subject": "academicresearcher",
                     "predicate": "PERFORMS",
-                    "object": "sort works"
+                    "object": "see the evolution of their scholarship"
                 },
                 {
                     "subject": "find the works of a particular author",
-                    "predicate": "PRECEDES",
-                    "object": "sort works"
+                    "predicate": "INCLUDE",
+                    "object": "see the evolution of their scholarship"
                 },
                 {
                     "subject": "find the works of a particular author",
@@ -3952,19 +4250,19 @@
                     "object": "author"
                 },
                 {
-                    "subject": "sort works",
+                    "subject": "see the evolution of their scholarship",
                     "predicate": "ASSOCIATION",
-                    "object": "works"
-                },
-                {
-                    "subject": "works",
-                    "predicate": "IS_A",
                     "object": "scholarship"
                 },
                 {
                     "subject": "author",
                     "predicate": "OWNS",
                     "object": "works"
+                },
+                {
+                    "subject": "works",
+                    "predicate": "ASSOCIATION",
+                    "object": "scholarship"
                 }
             ]
         }
@@ -3983,7 +4281,7 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "identify the source of the content",
+                    "text": "correctly identify the source of the content",
                     "label": "USE_CASE"
                 },
                 {
@@ -4003,7 +4301,7 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "content",
+                    "text": "source of the content",
                     "label": "CLASS"
                 }
             ],
@@ -4016,12 +4314,17 @@
                 {
                     "subject": "researcher",
                     "predicate": "PERFORMS",
-                    "object": "identify the source of the content"
+                    "object": "correctly identify the source of the content"
+                },
+                {
+                    "subject": "repository",
+                    "predicate": "CONTAINS",
+                    "object": "see descriptive metadata for the item"
                 },
                 {
                     "subject": "see descriptive metadata for the item",
-                    "predicate": "PRECEDES",
-                    "object": "identify the source of the content"
+                    "predicate": "INCLUDE",
+                    "object": "correctly identify the source of the content"
                 },
                 {
                     "subject": "see descriptive metadata for the item",
@@ -4034,24 +4337,24 @@
                     "object": "item"
                 },
                 {
-                    "subject": "repository",
-                    "predicate": "CONTAINS",
-                    "object": "item"
-                },
-                {
-                    "subject": "PDF",
-                    "predicate": "IS_A",
-                    "object": "item"
-                },
-                {
-                    "subject": "identify the source of the content",
+                    "subject": "see descriptive metadata for the item",
                     "predicate": "ASSOCIATION",
-                    "object": "content"
+                    "object": "PDF"
+                },
+                {
+                    "subject": "correctly identify the source of the content",
+                    "predicate": "ASSOCIATION",
+                    "object": "source of the content"
                 },
                 {
                     "subject": "item",
                     "predicate": "ASSOCIATION",
-                    "object": "content"
+                    "object": "PDF"
+                },
+                {
+                    "subject": "item",
+                    "predicate": "ASSOCIATION",
+                    "object": "source of the content"
                 }
             ]
         }
@@ -4074,16 +4377,16 @@
                     "label": "USE_CASE"
                 },
                 {
+                    "text": "SPSS",
+                    "label": "CLASS"
+                },
+                {
                     "text": "data-packaged data",
                     "label": "CLASS"
                 },
                 {
                     "text": "pipelines",
                     "label": "CLASS"
-                },
-                {
-                    "text": "SPSS",
-                    "label": "SYSTEM_BOUNDARY"
                 }
             ],
             "relations": [
@@ -4099,8 +4402,13 @@
                 },
                 {
                     "subject": "SPSS integration",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "integrate data-packaged data with pipelines"
+                },
+                {
+                    "subject": "SPSS integration",
+                    "predicate": "ASSOCIATION",
+                    "object": "SPSS"
                 },
                 {
                     "subject": "integrate data-packaged data with pipelines",
@@ -4116,11 +4424,6 @@
                     "subject": "pipelines",
                     "predicate": "ASSOCIATION",
                     "object": "SPSS"
-                },
-                {
-                    "subject": "SPSS",
-                    "predicate": "CONTAINS",
-                    "object": "pipelines"
                 }
             ]
         }
@@ -4135,7 +4438,7 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "relate one collection to another",
+                    "text": "say one collection is related to another collection",
                     "label": "USE_CASE"
                 },
                 {
@@ -4147,10 +4450,10 @@
                 {
                     "subject": "repository manager",
                     "predicate": "PERFORMS",
-                    "object": "relate one collection to another"
+                    "object": "say one collection is related to another collection"
                 },
                 {
-                    "subject": "relate one collection to another",
+                    "subject": "say one collection is related to another collection",
                     "predicate": "ASSOCIATION",
                     "object": "collection"
                 },
@@ -4218,7 +4521,7 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "access reports",
+                    "text": "access reports containing details of research projects",
                     "label": "USE_CASE"
                 },
                 {
@@ -4234,16 +4537,12 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "data",
+                    "text": "sensitive data",
                     "label": "CLASS"
                 },
                 {
-                    "text": "sensitive",
-                    "label": "STRING_ATTRIBUTE"
-                },
-                {
-                    "text": "highly sensitive",
-                    "label": "STRING_ATTRIBUTE"
+                    "text": "highly sensitive data",
+                    "label": "CLASS"
                 },
                 {
                     "text": "security protocols",
@@ -4254,7 +4553,7 @@
                 {
                     "subject": "Director of Research Integrity",
                     "predicate": "PERFORMS",
-                    "object": "access reports"
+                    "object": "access reports containing details of research projects"
                 },
                 {
                     "subject": "Director of Research Integrity",
@@ -4262,34 +4561,29 @@
                     "object": "confirm security protocols are applied"
                 },
                 {
-                    "subject": "access reports",
-                    "predicate": "PRECEDES",
+                    "subject": "access reports containing details of research projects",
+                    "predicate": "INCLUDE",
                     "object": "confirm security protocols are applied"
                 },
                 {
-                    "subject": "access reports",
+                    "subject": "access reports containing details of research projects",
                     "predicate": "ASSOCIATION",
                     "object": "reports"
                 },
                 {
                     "subject": "reports",
-                    "predicate": "CONTAINS",
+                    "predicate": "ASSOCIATION",
                     "object": "research projects"
                 },
                 {
                     "subject": "research projects",
                     "predicate": "ASSOCIATION",
-                    "object": "data"
+                    "object": "sensitive data"
                 },
                 {
-                    "subject": "data",
-                    "predicate": "HAS_ATTRIBUTE",
-                    "object": "sensitive"
-                },
-                {
-                    "subject": "data",
-                    "predicate": "HAS_ATTRIBUTE",
-                    "object": "highly sensitive"
+                    "subject": "research projects",
+                    "predicate": "ASSOCIATION",
+                    "object": "highly sensitive data"
                 },
                 {
                     "subject": "confirm security protocols are applied",
@@ -4299,7 +4593,12 @@
                 {
                     "subject": "security protocols",
                     "predicate": "ASSOCIATION",
-                    "object": "data"
+                    "object": "sensitive data"
+                },
+                {
+                    "subject": "security protocols",
+                    "predicate": "ASSOCIATION",
+                    "object": "highly sensitive data"
                 }
             ]
         }
@@ -4314,11 +4613,11 @@
                     "label": "ACTOR"
                 },
                 {
-                    "text": "researchers",
-                    "label": "ACTOR"
+                    "text": "tell researchers about repository system",
+                    "label": "USE_CASE"
                 },
                 {
-                    "text": "tell the researchers Cornell has a repository system",
+                    "text": "meet needs of funder DMP requirements",
                     "label": "USE_CASE"
                 },
                 {
@@ -4326,8 +4625,8 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "meet the needs of funder DMP requirements",
-                    "label": "USE_CASE"
+                    "text": "researchers",
+                    "label": "CLASS"
                 },
                 {
                     "text": "DMPs",
@@ -4338,7 +4637,7 @@
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
-                    "text": "results of research",
+                    "text": "research results",
                     "label": "CLASS"
                 },
                 {
@@ -4350,32 +4649,12 @@
                 {
                     "subject": "library staff member",
                     "predicate": "PERFORMS",
-                    "object": "tell the researchers Cornell has a repository system"
+                    "object": "tell researchers about repository system"
                 },
                 {
                     "subject": "library staff member",
                     "predicate": "PERFORMS",
-                    "object": "archiving and sharing results"
-                },
-                {
-                    "subject": "library staff member",
-                    "predicate": "PERFORMS",
-                    "object": "meet the needs of funder DMP requirements"
-                },
-                {
-                    "subject": "tell the researchers Cornell has a repository system",
-                    "predicate": "ASSOCIATION",
-                    "object": "researchers"
-                },
-                {
-                    "subject": "tell the researchers Cornell has a repository system",
-                    "predicate": "ASSOCIATION",
-                    "object": "DMPs"
-                },
-                {
-                    "subject": "archiving and sharing results",
-                    "predicate": "ASSOCIATION",
-                    "object": "results of research"
+                    "object": "meet needs of funder DMP requirements"
                 },
                 {
                     "subject": "repository system",
@@ -4383,7 +4662,27 @@
                     "object": "archiving and sharing results"
                 },
                 {
-                    "subject": "meet the needs of funder DMP requirements",
+                    "subject": "tell researchers about repository system",
+                    "predicate": "INCLUDE",
+                    "object": "meet needs of funder DMP requirements"
+                },
+                {
+                    "subject": "tell researchers about repository system",
+                    "predicate": "ASSOCIATION",
+                    "object": "researchers"
+                },
+                {
+                    "subject": "researchers",
+                    "predicate": "OWNS",
+                    "object": "DMPs"
+                },
+                {
+                    "subject": "archiving and sharing results",
+                    "predicate": "ASSOCIATION",
+                    "object": "research results"
+                },
+                {
+                    "subject": "meet needs of funder DMP requirements",
                     "predicate": "ASSOCIATION",
                     "object": "funder DMP requirements"
                 },
@@ -4415,10 +4714,6 @@
                 {
                     "text": "games",
                     "label": "CLASS"
-                },
-                {
-                    "text": "Imagination",
-                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -4434,18 +4729,13 @@
                 },
                 {
                     "subject": "play games",
-                    "predicate": "ASSOCIATION",
-                    "object": "games"
+                    "predicate": "INCLUDE",
+                    "object": "use my Imagination"
                 },
                 {
                     "subject": "play games",
                     "predicate": "ASSOCIATION",
-                    "object": "use my Imagination"
-                },
-                {
-                    "subject": "use my Imagination",
-                    "predicate": "ASSOCIATION",
-                    "object": "Imagination"
+                    "object": "games"
                 }
             ]
         }
@@ -4468,8 +4758,8 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "maximum size of 262,144 values",
-                    "label": "STRING_ATTRIBUTE"
+                    "text": "values",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -4485,8 +4775,8 @@
                 },
                 {
                     "subject": "lag sets",
-                    "predicate": "HAS_ATTRIBUTE",
-                    "object": "maximum size of 262,144 values"
+                    "predicate": "ASSOCIATION",
+                    "object": "values"
                 }
             ]
         }
@@ -4505,7 +4795,7 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "refer to it easily",
+                    "text": "refer to reports and documentation",
                     "label": "USE_CASE"
                 },
                 {
@@ -4526,12 +4816,12 @@
                 {
                     "subject": "NSF member",
                     "predicate": "PERFORMS",
-                    "object": "refer to it easily"
+                    "object": "refer to reports and documentation"
                 },
                 {
                     "subject": "access all the related reports and documentation",
-                    "predicate": "PRECEDES",
-                    "object": "refer to it easily"
+                    "predicate": "INCLUDE",
+                    "object": "refer to reports and documentation"
                 },
                 {
                     "subject": "access all the related reports and documentation",
@@ -4540,6 +4830,11 @@
                 },
                 {
                     "subject": "access all the related reports and documentation",
+                    "predicate": "ASSOCIATION",
+                    "object": "documentation"
+                },
+                {
+                    "subject": "reports",
                     "predicate": "ASSOCIATION",
                     "object": "documentation"
                 }
@@ -4554,6 +4849,10 @@
                 {
                     "text": "product",
                     "label": "SYSTEM_BOUNDARY"
+                },
+                {
+                    "text": "defensive player",
+                    "label": "ACTOR"
                 },
                 {
                     "text": "examine the defensive grid",
@@ -4572,8 +4871,12 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "defensive player",
-                    "label": "ACTOR"
+                    "text": "hit",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "miss",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -4589,7 +4892,7 @@
                 },
                 {
                     "subject": "examine the defensive grid",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "determine whether the shot was a hit or miss"
                 },
                 {
@@ -4598,14 +4901,24 @@
                     "object": "defensive grid"
                 },
                 {
-                    "subject": "defensive grid",
-                    "predicate": "ASSOCIATION",
-                    "object": "defensive player"
-                },
-                {
                     "subject": "determine whether the shot was a hit or miss",
                     "predicate": "ASSOCIATION",
                     "object": "shot"
+                },
+                {
+                    "subject": "defensive player",
+                    "predicate": "OWNS",
+                    "object": "defensive grid"
+                },
+                {
+                    "subject": "shot",
+                    "predicate": "SPECIALIZATION",
+                    "object": "hit"
+                },
+                {
+                    "subject": "shot",
+                    "predicate": "SPECIALIZATION",
+                    "object": "miss"
                 }
             ]
         }
@@ -4624,8 +4937,8 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "scheduled",
-                    "label": "STRING_ATTRIBUTE"
+                    "text": "keep the schedule up to date",
+                    "label": "USE_CASE"
                 },
                 {
                     "text": "tasks",
@@ -4647,6 +4960,16 @@
                     "object": "modify tasks/events"
                 },
                 {
+                    "subject": "camp administrator",
+                    "predicate": "PERFORMS",
+                    "object": "keep the schedule up to date"
+                },
+                {
+                    "subject": "modify tasks/events",
+                    "predicate": "INCLUDE",
+                    "object": "keep the schedule up to date"
+                },
+                {
                     "subject": "modify tasks/events",
                     "predicate": "ASSOCIATION",
                     "object": "tasks"
@@ -4657,28 +4980,18 @@
                     "object": "events"
                 },
                 {
-                    "subject": "tasks",
-                    "predicate": "HAS_ATTRIBUTE",
-                    "object": "scheduled"
-                },
-                {
-                    "subject": "events",
-                    "predicate": "HAS_ATTRIBUTE",
-                    "object": "scheduled"
-                },
-                {
-                    "subject": "modify tasks/events",
+                    "subject": "keep the schedule up to date",
                     "predicate": "ASSOCIATION",
                     "object": "schedule"
                 },
                 {
                     "subject": "schedule",
-                    "predicate": "CONTAINS",
+                    "predicate": "ASSOCIATION",
                     "object": "tasks"
                 },
                 {
                     "subject": "schedule",
-                    "predicate": "CONTAINS",
+                    "predicate": "ASSOCIATION",
                     "object": "events"
                 }
             ]
@@ -4698,7 +5011,7 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "reuse articles",
+                    "text": "reuse them",
                     "label": "USE_CASE"
                 },
                 {
@@ -4719,12 +5032,12 @@
                 {
                     "subject": "admin",
                     "predicate": "PERFORMS",
-                    "object": "reuse articles"
+                    "object": "reuse them"
                 },
                 {
                     "subject": "see a summary of articles",
-                    "predicate": "PRECEDES",
-                    "object": "reuse articles"
+                    "predicate": "INCLUDE",
+                    "object": "reuse them"
                 },
                 {
                     "subject": "see a summary of articles",
@@ -4732,12 +5045,12 @@
                     "object": "summary"
                 },
                 {
-                    "subject": "summary",
+                    "subject": "see a summary of articles",
                     "predicate": "ASSOCIATION",
                     "object": "articles"
                 },
                 {
-                    "subject": "reuse articles",
+                    "subject": "summary",
                     "predicate": "ASSOCIATION",
                     "object": "articles"
                 }
@@ -4762,10 +5075,6 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "data",
-                    "label": "CLASS"
-                },
-                {
                     "text": "source",
                     "label": "CLASS"
                 },
@@ -4787,12 +5096,7 @@
                 {
                     "subject": "cache data",
                     "predicate": "ASSOCIATION",
-                    "object": "data"
-                },
-                {
-                    "subject": "data record",
-                    "predicate": "ASSOCIATION",
-                    "object": "data"
+                    "object": "data record"
                 },
                 {
                     "subject": "data record",
@@ -4826,11 +5130,11 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "property",
+                    "text": "dataset instance",
                     "label": "CLASS"
                 },
                 {
-                    "text": "dataset instance",
+                    "text": "property",
                     "label": "CLASS"
                 }
             ],
@@ -4843,16 +5147,16 @@
                 {
                     "subject": "remove a single property of a dataset instance",
                     "predicate": "ASSOCIATION",
-                    "object": "property"
+                    "object": "dataset instance"
                 },
                 {
                     "subject": "remove a single property of a dataset instance",
                     "predicate": "ASSOCIATION",
-                    "object": "dataset instance"
+                    "object": "property"
                 },
                 {
                     "subject": "dataset instance",
-                    "predicate": "CONTAINS",
+                    "predicate": "ASSOCIATION",
                     "object": "property"
                 }
             ]
@@ -4876,7 +5180,11 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "move items to Historical",
+                    "text": "identify items needing attention",
+                    "label": "USE_CASE"
+                },
+                {
+                    "text": "move items to Historical collection",
                     "label": "USE_CASE"
                 },
                 {
@@ -4892,7 +5200,7 @@
                     "label": "CLASS"
                 },
                 {
-                    "text": "Historical",
+                    "text": "Historical collection",
                     "label": "CLASS"
                 }
             ],
@@ -4908,14 +5216,14 @@
                     "object": "get periodic IR reminders"
                 },
                 {
-                    "subject": "Extension Administrator",
-                    "predicate": "PERFORMS",
-                    "object": "move items to Historical"
+                    "subject": "get periodic IR reminders",
+                    "predicate": "INCLUDE",
+                    "object": "identify items needing attention"
                 },
                 {
-                    "subject": "Staff Content Manager",
-                    "predicate": "PERFORMS",
-                    "object": "move items to Historical"
+                    "subject": "get periodic IR reminders",
+                    "predicate": "INCLUDE",
+                    "object": "move items to Historical collection"
                 },
                 {
                     "subject": "get periodic IR reminders",
@@ -4923,24 +5231,19 @@
                     "object": "IR reminders"
                 },
                 {
-                    "subject": "IR reminders",
+                    "subject": "identify items needing attention",
                     "predicate": "ASSOCIATION",
                     "object": "ingestion/approval steps"
                 },
                 {
-                    "subject": "move items to Historical",
+                    "subject": "move items to Historical collection",
                     "predicate": "ASSOCIATION",
                     "object": "current knowledge collection"
                 },
                 {
-                    "subject": "move items to Historical",
+                    "subject": "move items to Historical collection",
                     "predicate": "ASSOCIATION",
-                    "object": "Historical"
-                },
-                {
-                    "subject": "current knowledge collection",
-                    "predicate": "PRECEDES",
-                    "object": "Historical"
+                    "object": "Historical collection"
                 }
             ]
         }
@@ -4959,12 +5262,12 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "weather data",
-                    "label": "CLASS"
+                    "text": "MDNR weather information systems",
+                    "label": "ACTOR"
                 },
                 {
-                    "text": "Michigan Department of Natural Resources (MDNR) weather information systems",
-                    "label": "SYSTEM_BOUNDARY"
+                    "text": "weather data",
+                    "label": "CLASS"
                 },
                 {
                     "text": "MDNR interface",
@@ -4980,6 +5283,11 @@
                 {
                     "subject": "collect weather data",
                     "predicate": "ASSOCIATION",
+                    "object": "MDNR weather information systems"
+                },
+                {
+                    "subject": "collect weather data",
+                    "predicate": "ASSOCIATION",
                     "object": "weather data"
                 },
                 {
@@ -4988,9 +5296,9 @@
                     "object": "MDNR interface"
                 },
                 {
-                    "subject": "MDNR interface",
+                    "subject": "MDNR weather information systems",
                     "predicate": "ASSOCIATION",
-                    "object": "Michigan Department of Natural Resources (MDNR) weather information systems"
+                    "object": "MDNR interface"
                 }
             ]
         }
@@ -5013,12 +5321,8 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "site",
-                    "label": "SYSTEM_BOUNDARY"
-                },
-                {
-                    "text": "active",
-                    "label": "STRING_ATTRIBUTE"
+                    "text": "site activity",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -5034,18 +5338,13 @@
                 },
                 {
                     "subject": "see how active the site is",
-                    "predicate": "PRECEDES",
+                    "predicate": "INCLUDE",
                     "object": "decide if I should get involved"
                 },
                 {
                     "subject": "see how active the site is",
                     "predicate": "ASSOCIATION",
-                    "object": "site"
-                },
-                {
-                    "subject": "site",
-                    "predicate": "HAS_ATTRIBUTE",
-                    "object": "active"
+                    "object": "site activity"
                 }
             ]
         }
@@ -5064,16 +5363,16 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "bespoke information",
-                    "label": "CLASS"
-                },
-                {
                     "text": "file",
                     "label": "CLASS"
                 },
                 {
-                    "text": "type",
-                    "label": "STRING_ATTRIBUTE"
+                    "text": "bespoke information",
+                    "label": "CLASS"
+                },
+                {
+                    "text": "file type",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -5085,22 +5384,22 @@
                 {
                     "subject": "assign bespoke information to a file",
                     "predicate": "ASSOCIATION",
-                    "object": "bespoke information"
+                    "object": "file"
                 },
                 {
                     "subject": "assign bespoke information to a file",
                     "predicate": "ASSOCIATION",
-                    "object": "file"
+                    "object": "bespoke information"
                 },
                 {
                     "subject": "file",
-                    "predicate": "HAS_ATTRIBUTE",
-                    "object": "type"
+                    "predicate": "ASSOCIATION",
+                    "object": "file type"
                 },
                 {
                     "subject": "bespoke information",
                     "predicate": "ASSOCIATION",
-                    "object": "type"
+                    "object": "file type"
                 }
             ]
         }
@@ -5119,11 +5418,11 @@
                     "label": "USE_CASE"
                 },
                 {
-                    "text": "unaffected resources",
-                    "label": "CLASS"
+                    "text": "partial shutdowns",
+                    "label": "USE_CASE"
                 },
                 {
-                    "text": "partial shutdowns",
+                    "text": "unaffected resources",
                     "label": "CLASS"
                 },
                 {
@@ -5146,14 +5445,14 @@
                     "object": "continue operations"
                 },
                 {
-                    "subject": "continue operations",
-                    "predicate": "ASSOCIATION",
-                    "object": "unaffected resources"
+                    "subject": "system",
+                    "predicate": "CONTAINS",
+                    "object": "partial shutdowns"
                 },
                 {
                     "subject": "continue operations",
                     "predicate": "ASSOCIATION",
-                    "object": "partial shutdowns"
+                    "object": "unaffected resources"
                 },
                 {
                     "subject": "partial shutdowns",
@@ -5169,6 +5468,11 @@
                     "subject": "partial shutdowns",
                     "predicate": "ASSOCIATION",
                     "object": "upgrade"
+                },
+                {
+                    "subject": "continue operations",
+                    "predicate": "INCLUDE",
+                    "object": "partial shutdowns"
                 }
             ]
         }
@@ -5181,10 +5485,6 @@
                 {
                     "text": "system",
                     "label": "SYSTEM_BOUNDARY"
-                },
-                {
-                    "text": "provide a comprehensive web interface",
-                    "label": "USE_CASE"
                 },
                 {
                     "text": "track buses on their routes",
@@ -5207,20 +5507,10 @@
                 {
                     "subject": "system",
                     "predicate": "CONTAINS",
-                    "object": "provide a comprehensive web interface"
-                },
-                {
-                    "subject": "system",
-                    "predicate": "CONTAINS",
                     "object": "track buses on their routes"
                 },
                 {
-                    "subject": "provide a comprehensive web interface",
-                    "predicate": "PRECEDES",
-                    "object": "track buses on their routes"
-                },
-                {
-                    "subject": "provide a comprehensive web interface",
+                    "subject": "track buses on their routes",
                     "predicate": "ASSOCIATION",
                     "object": "web interface"
                 },
@@ -5266,6 +5556,10 @@
                 {
                     "text": "door",
                     "label": "CLASS"
+                },
+                {
+                    "text": "visitor",
+                    "label": "CLASS"
                 }
             ],
             "relations": [
@@ -5295,6 +5589,11 @@
                     "object": "door"
                 },
                 {
+                    "subject": "see who is standing at my door",
+                    "predicate": "ASSOCIATION",
+                    "object": "visitor"
+                },
+                {
                     "subject": "open the door",
                     "predicate": "ASSOCIATION",
                     "object": "door"
@@ -5312,7 +5611,7 @@
                     "label": "SYSTEM_BOUNDARY"
                 },
                 {
-                    "text": "issues the block member",
+                    "text": "issue the block member",
                     "label": "USE_CASE"
                 },
                 {
@@ -5322,32 +5621,28 @@
                 {
                     "text": "transaction",
                     "label": "CLASS"
-                },
-                {
-                    "text": "mined",
-                    "label": "STRING_ATTRIBUTE"
                 }
             ],
             "relations": [
                 {
                     "subject": "smart contract",
                     "predicate": "CONTAINS",
-                    "object": "issues the block member"
+                    "object": "issue the block member"
                 },
                 {
-                    "subject": "issues the block member",
+                    "subject": "issue the block member",
                     "predicate": "ASSOCIATION",
                     "object": "block member"
+                },
+                {
+                    "subject": "issue the block member",
+                    "predicate": "ASSOCIATION",
+                    "object": "transaction"
                 },
                 {
                     "subject": "block member",
                     "predicate": "ASSOCIATION",
                     "object": "transaction"
-                },
-                {
-                    "subject": "transaction",
-                    "predicate": "HAS_ATTRIBUTE",
-                    "object": "mined"
                 }
             ]
         }
@@ -5395,6 +5690,11 @@
                 },
                 {
                     "subject": "create and maintain venues",
+                    "predicate": "INCLUDE",
+                    "object": "provide location details"
+                },
+                {
+                    "subject": "create and maintain venues",
                     "predicate": "ASSOCIATION",
                     "object": "venues"
                 },
@@ -5404,19 +5704,14 @@
                     "object": "location details"
                 },
                 {
-                    "subject": "venues",
-                    "predicate": "HAS_ATTRIBUTE",
-                    "object": "location details"
+                    "subject": "location details",
+                    "predicate": "ASSOCIATION",
+                    "object": "venues"
                 },
                 {
                     "subject": "provide location details",
                     "predicate": "ASSOCIATION",
                     "object": "users"
-                },
-                {
-                    "subject": "create and maintain venues",
-                    "predicate": "PRECEDES",
-                    "object": "provide location details"
                 }
             ]
         }
